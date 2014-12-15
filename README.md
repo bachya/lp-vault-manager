@@ -17,9 +17,7 @@ The engine that drives the ability to interact with LastPass remotely is [LastPa
 
 By default, laspass-cli requires you to execute the command:
 
-```bash
-/usr/local/bin/lpass login <USERNAME>
-```
+`/usr/local/bin/lpass login <USERNAME>`
 
 ...and input the vault's master password. As expected, lastpass-cli requires this to happen after a certain time interval; since this can cause the Alfred workflow to stop working at various points, it is recommended that you prevent the credentials from timing out:
 
