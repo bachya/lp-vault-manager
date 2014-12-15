@@ -4,8 +4,6 @@
 
 LP Vault manager is an [Alfred 2](http://www.alfredapp.com/) workflow to interact with a LastPass vault.
 
-![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/screenshot.png)
-
 It currently carries the following functionality:
 
 * Searching an individual vault
@@ -35,6 +33,27 @@ export LPASS_AGENT_TIMEOUT=0
 
 At some point, I'll figure out a way to re-login via the workflow so that security-conscious individuals can be satisfied. :)
 
-## Interacting with a Vault
+## Searching a Vault
+
+`lpvs <SITE NAME TO SEARCH FOR>`
+
+![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/screenshot.png)
+
+* Select an item to copy its password.
+* ⌘-select an item to copy its username.
+
+Note that the Ruby script driving `lpvs` (found inside the `lpvs` Script Filter) contains the following:
+
+```ruby
+### CONSTANTS ###
+
+LPASS_PATH = "/usr/local/bin/lpass"
+
+# ---------------
+```
+
+Make sure you change `LPASS_PATH` to point to the location of your installed lastpass-cli.
 
 ## Password Generation
+
+`lppg <OPTIONAL PASSWORD LENGTH>`
