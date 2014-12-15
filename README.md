@@ -37,19 +37,17 @@ At some point, I'll figure out a way to re-login via the workflow so that securi
 
 `lpvs <SITE NAME TO SEARCH FOR>`
 
-![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/screenshot.png)
+![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpvs-screenshot.png)
 
-* Select an item to copy its password.
-* ⌘-select an item to copy its username.
+* Select an item to copy its password to the system clipboard.
+* ⌘-select an item to copy its username to the system clipboard.
 
-Note that the Ruby script driving `lpvs` (found inside the `lpvs` Script Filter) contains the following:
+### Configuration
+
+Configuration occurs within the Ruby script (found inside the `lpvs` Script Filter):
 
 ```ruby
-### CONSTANTS ###
-
 LPASS_PATH = "/usr/local/bin/lpass"
-
-# ---------------
 ```
 
 Make sure you change `LPASS_PATH` to point to the location of your installed lastpass-cli.
@@ -57,3 +55,71 @@ Make sure you change `LPASS_PATH` to point to the location of your installed las
 ## Password Generation
 
 `lppg <OPTIONAL PASSWORD LENGTH>`
+
+![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lppg-screenshot.png)
+
+Select an item to copy the generated password to the system clipboard.
+
+### Configuration
+
+Configuration occurs within the Ruby script (found inside the `lppg` Script Filter):
+
+```ruby
+LPASS_PATH = "/usr/local/bin/lpass"
+```
+
+Make sure you change `LPASS_PATH` to point to the location of your installed lastpass-cli.
+
+Within this same script, you can configure the following options:
+
+* The number of passwords that the `lppg` keyword should generate.
+* The default password length (which can be overridden by passing an optional integer argument to the keyword).
+* Whether the passwords should use numbers (and which numbers should be considered).
+* Whether the symbols should use numbers (and which symbols should be considered).
+* Whether ambiguous characters should be avoided.
+
+# Bugs and Feature Requests
+
+To report bugs with or suggest features/changes for LP Vault Manager, please use
+the [Issues Page](https://github.com/bachya/lp-vault-manager/issues).
+
+Contributions are welcome and encouraged. To contribute:
+
+* [Fork LP Vault Manager](http://github.com/bachya/lp-vault-manager/fork).
+* Create a branch for your contribution (`git checkout -b new-feature`).
+* Commit your changes (`git commit -am 'Added this new feature'`).
+* Push to the branch (`git push origin new-feature`).
+* Create a new [Pull Request](http://github.com/bachya/lp-vault-manager/compare/).
+
+# License
+
+(The MIT License)
+
+Copyright © 2014 Aaron Bach <bachya1208@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the 'Software'), to deal in the
+Software without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+# Credits
+
+* Craig Eley for [Sifttter](http://craigeley.com/post/72565974459/sifttter-an-ifttt-to-day-one-logger "Sifttter")
+and for giving me the idea for Sifttter Redux
+* Dave Copeland for [GLI](https://github.com/davetron5000/gli "GLI")
+* Andrea Fabrizi for [Dropbox Uploader](https://github.com/andreafabrizi/Dropbox-Uploader "Dropbox Uploader")
+* ~~Tom Preston-Werner~~ (sorry: can't
+support [harrassment](http://www.businessinsider.com/github-co-founder-suspended-2014-3 "GitHub Founder Tom Preston-Werner Suspended After Harassment Allegations"))
+~~and~~ Lee Jarvis for [Chronic](https://github.com/mojombo/chronic "Chronic")
