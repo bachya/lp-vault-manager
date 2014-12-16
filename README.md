@@ -29,7 +29,11 @@ By default, laspass-cli requires you to execute the command:
 export LPASS_AGENT_TIMEOUT=0
 ```
 
-At some point, I'll figure out a way to re-login via the workflow so that security-conscious individuals can be satisfied. :)
+If that offends a security-conscious mind, no pressure; just keep in mind that you'll have to periodically rerun:
+
+`/usr/local/bin/lpass login <USERNAME>`
+
+...to get it working again (with no warning, mind you – you'll only know because the workflow stops working).
 
 ## Searching a Vault
 
