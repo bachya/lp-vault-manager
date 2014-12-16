@@ -13,7 +13,7 @@ It currently carries the following functionality:
 
 ## Initializing the Workflow
 
-The engine that drives the ability to interact with LastPass remotely is [LastPass' own lastpass-cli command line tool](https://github.com/LastPass/lastpass-cli). Therefore, the first step is to ensure that this is installed on your machine. Helpful hint: [the Homebrew method](https://github.com/LastPass/lastpass-cli) is my recommended method.
+The engine that drives the ability to interact with LastPass remotely is [LastPass' own lastpass-cli command line tool](https://github.com/LastPass/lastpass-cli). Therefore, the first step is to ensure that this is installed on your machine. Helpful hint: [the Homebrew method](https://github.com/LastPass/lastpass-cli#installing-on-os-x) is my recommended method.
 
 By default, laspass-cli requires you to execute the command:
 
