@@ -42,8 +42,9 @@ If that offends a security-conscious mind, no pressure; just keep in mind that y
 
 ![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpvs-screenshot.png)
 
-* Select an item to copy its password to the system clipboard.
-* ⌘-select an item to copy its username to the system clipboard.
+* Select an item to launch its URL in the default browser.
+* ⌘-Click an item to copy its password to the system clipboard.
+* Shift-Click an item to copy its username to the system clipboard.
 
 ### Configuration
 
