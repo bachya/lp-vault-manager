@@ -51,10 +51,9 @@ If that offends a security-conscious mind, no pressure; just keep in mind that y
 Configuration occurs within the Ruby script (found inside the `lpvs` Script Filter):
 
 ```ruby
+# Change this to a relevant path on your system:
 LPASS_PATH = "/usr/local/bin/lpass"
 ```
-
-Make sure you change `LPASS_PATH` to point to the location of your installed lastpass-cli.
 
 ## Password Generation
 
@@ -69,18 +68,13 @@ Select an item to copy the generated password to the system clipboard.
 Configuration occurs within the Ruby script (found inside the `lppg` Script Filter):
 
 ```ruby
-LPASS_PATH = "/usr/local/bin/lpass"
+### CONSTANTS ###
+NUM_PASSWORDS = 10         # The number of passwords to generate
+DEFAULT_PASSWORD_LEN = 20  # The default length (if no arg is specified)
+USE_NUMBERS = true         # Whether the password should include numbers
+USE_SYMBOLS = true         # Whether the passwork should include symbols
+AVOID_AMBIGUOUS = true     # Whether ambiguous chars should be ignored
 ```
-
-Make sure you change `LPASS_PATH` to point to the location of your installed lastpass-cli.
-
-Within this same script, you can configure the following options:
-
-* The number of passwords that the `lppg` keyword should generate.
-* The default password length (which can be overridden by passing an optional integer argument to the keyword).
-* Whether the passwords should use numbers (and which numbers should be considered).
-* Whether the symbols should use numbers (and which symbols should be considered).
-* Whether ambiguous characters should be avoided.
 
 # Bugs and Feature Requests
 
