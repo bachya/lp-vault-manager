@@ -48,12 +48,17 @@ If that offends a security-conscious mind, no pressure; just keep in mind that y
 
 ### Configuration
 
-Configuration occurs within the Ruby script (found inside the `lpvs` Script Filter):
+The primary configuration item is the location of the `lpass` executable:
 
 ```ruby
 # Change this to a relevant path on your system:
 LPASS_PATH = "/usr/local/bin/lpass"
 ```
+
+This value needs to be set in several places:
+
+* The `lpvs` Script Filter.
+* All scripts that are connected to that Script Filter.
 
 ## Password Generation
 
