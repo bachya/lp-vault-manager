@@ -4,12 +4,13 @@
 
 LP Vault manager is an [Alfred 2](http://www.alfredapp.com/) workflow to interact with a [LastPass](http://www.lastpass.com) vault.
 
-It currently carries the following functionality:
+With it, you can:
 
-* Searching an individual vault
-* Copying a vault item's username
-* Copying a vault item's password
-* Generating a random password
+* search an individual vault.
+* launch a vault URL in the default browser.
+* copy a vault item's username.
+* copy vault item's password.
+* generate a random password.
 
 ## Initializing the Workflow
 
