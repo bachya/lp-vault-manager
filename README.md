@@ -67,11 +67,13 @@ to force download it:
 
 `lpdd`
 
+![lpdd Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpdd-screenshot.png)
+
 ## Searching a Vault
 
 `lpvs <QUERY>`
 
-![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpvs-screenshot.png)
+![lpvs Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpvs-screenshot.png)
 
 The query is run against vault item names and URLs. When results appear, there are several actions you can take on them:
 
@@ -83,7 +85,7 @@ The query is run against vault item names and URLs. When results appear, there a
 
 `lppg <OPTIONAL PASSWORD LENGTH>`
 
-![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lppg-screenshot.png)
+![lppg Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lppg-screenshot.png)
 
 Select an item to copy the generated password to the system clipboard.
 
