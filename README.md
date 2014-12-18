@@ -91,7 +91,7 @@ Select an item to copy the generated password to the system clipboard.
 
 ### Configuration
 
-Configuration occurs within the Ruby script (found inside the `lppg` Script Filter):
+Configuration occurs within the Ruby script (`lpvm.rb', found inside the workflow folder`):
 
 ```ruby
 ### CONSTANTS ###
