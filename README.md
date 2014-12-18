@@ -14,6 +14,8 @@ With it, you can:
 
 ## Initializing the Workflow
 
+### Install lastpass-cli
+
 The engine that drives the ability to interact with LastPass remotely is [LastPass' own lastpass-cli command line tool](https://github.com/LastPass/lastpass-cli). Therefore, the first step is to ensure that this is installed on your machine. Helpful hint: [the Homebrew method](https://github.com/LastPass/lastpass-cli#installing-on-os-x) is my recommended method.
 
 By default, laspass-cli requires you to execute the command:
@@ -36,29 +38,46 @@ If that offends a security-conscious mind, no pressure; just keep in mind that y
 
 ...to get it working again (with no warning, mind you – you'll only know because the workflow stops working).
 
+### Storing the Path to lastpass-cli
+
+Since Alfred doesn't give an easy ability to store workflow-wide variables, the `LPASS_PATH` environment variable
+can be used:
+
+```bash
+export LPASS_PATH=/usr/local/bin/lpass
+```
+
+If this variable isn't set, LP Vault Manager will attempt to automagically deduce its location. But that takes a microsecond
+longer, so if speed is the name of your game, make sure to set the `LPASS_PATH` variable.
+
+## Caching Data
+
+Alfred Script Filters have [a strange quirk](http://goo.gl/JS1BUK) that must be worked around:
+
+1. A Script Filter is executed regularly as the user types.
+2. Each time it is run, a new process is spun up and the previous processes continuing running.
+3. If the `lpass` command is slow, the Script Filter results will change while the workflow is running.
+
+This leads to a less-than-ideal user experience. Therefore, I made a hard decision: in order to speed
+up the process, I cache your vault data to your local filesystem. It should be perfectly safe there, but
+as I cannot fully verify the veracity of that statement, you should be aware.
+
+The first time data is requested from LastPass, the data is cached automatically. You always have the option
+to force download it:
+
+`lpdd`
+
 ## Searching a Vault
 
-`lpvs <SITE NAME TO SEARCH FOR>`
+`lpvs <QUERY>`
 
 ![Workflow Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpvs-screenshot.png)
+
+The query is run against vault item names and URLs. When results appear, there are several actions you can take on them:
 
 * Select an item to launch its URL in the default browser.
 * ⌘-Click an item to copy its password to the system clipboard.
 * Shift-Click an item to copy its username to the system clipboard.
-
-### Configuration
-
-The primary configuration item is the location of the `lpass` executable:
-
-```ruby
-# Change this to a relevant path on your system:
-LPASS_PATH = "/usr/local/bin/lpass"
-```
-
-This value needs to be set in several places:
-
-* The `lpvs` Script Filter.
-* All scripts that are connected to that Script Filter.
 
 ## Password Generation
 
