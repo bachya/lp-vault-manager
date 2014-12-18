@@ -44,6 +44,10 @@ Since Alfred doesn't give an easy ability to store workflow-wide variables, the 
 can be used:
 
 ```bash
+# The following sets the path to the lpass
+# executable in the current shell; you can
+# always put this in ~/.bashrc, ~/.profile,
+# ~/.zshrc, etc. to make it permanent.
 export LPASS_PATH=/usr/local/bin/lpass
 ```
 
