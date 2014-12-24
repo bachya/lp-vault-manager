@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>bachya/lp-vault-manager-old</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>035E995B-FCA6-4A38-991B-6A30FC6B532A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FBA114AE-E715-4DF3-A492-15F35A2AADC1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>0D677B8B-9F61-4E11-9CD6-7D36C7549C5F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>0DC688D3-83D8-4882-A256-DF1E52C68B82</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C61E7E8D-1162-4814-86E1-A060F11AACE6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>32D7BE8F-CD60-4080-8325-68755BB8F844</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4A8B9F8C-D39F-48A1-8DD1-0B6154B18A26</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E1CB7919-5A47-4681-B1A0-E8521C8D38FF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>46B91814-4A40-4433-ADB1-7D3DC4971974</key>
+		<array/>
+		<key>92E7F577-202E-4154-AD1E-A9DCDD740928</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E1CB7919-5A47-4681-B1A0-E8521C8D38FF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>255F0FC5-B116-4736-A365-62B279A3C701</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>C61E7E8D-1162-4814-86E1-A060F11AACE6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0AD04FCE-061A-4654-8E75-1538998B0DE4</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>CD0B96F2-2D85-49D8-84F3-4FBF112F5884</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>32D7BE8F-CD60-4080-8325-68755BB8F844</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Shift-Click to copy username.</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>46B91814-4A40-4433-ADB1-7D3DC4971974</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>92E7F577-202E-4154-AD1E-A9DCDD740928</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>⌘-Click to copy password.</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>119B6DAF-D5F6-4F4B-B635-DCF4E1E21B39</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Aaron Bach</string>
+	<key>description</key>
+	<string>Workflow to interact with a LastPass vault</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>LP Vault Manager (OLD) - COPY</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>123</integer>
+				<key>script</key>
+				<string># Run the search script:
+ruby lpvm.rb download</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C61E7E8D-1162-4814-86E1-A060F11AACE6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>lpdd</string>
+				<key>subtext</key>
+				<string>Download data for local access.</string>
+				<key>text</key>
+				<string>LP Vault Manager: Download Data</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>0DC688D3-83D8-4882-A256-DF1E52C68B82</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>Time to get LastPass'n!</string>
+				<key>title</key>
+				<string>LastPass data downloaded!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>0AD04FCE-061A-4654-8E75-1538998B0DE4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Username copied to clipboard!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>4A8B9F8C-D39F-48A1-8DD1-0B6154B18A26</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>123</integer>
+				<key>script</key>
+				<string># Run the search script:
+ruby lpvm.rb username "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>32D7BE8F-CD60-4080-8325-68755BB8F844</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>lpvs</string>
+				<key>runningsubtext</key>
+				<string>Searching vault...</string>
+				<key>script</key>
+				<string># Run the search script:
+ruby lpvm.rb search-vault "{query}"</string>
+				<key>subtext</key>
+				<string>Manage your LastPass vault via Alfred.</string>
+				<key>title</key>
+				<string>LP Vault Manager: Search Vault</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>CD0B96F2-2D85-49D8-84F3-4FBF112F5884</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string># Run the search script:
+ruby lpvm.rb url "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>46B91814-4A40-4433-ADB1-7D3DC4971974</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>E1CB7919-5A47-4681-B1A0-E8521C8D38FF</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string># Run the search script:
+ruby lpvm.rb password "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>92E7F577-202E-4154-AD1E-A9DCDD740928</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Password copied to clipboard!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>255F0FC5-B116-4736-A365-62B279A3C701</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string># Run the search script:
+ruby lpvm.rb show-item "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>119B6DAF-D5F6-4F4B-B635-DCF4E1E21B39</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>FBA114AE-E715-4DF3-A492-15F35A2AADC1</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>lppg</string>
+				<key>runningsubtext</key>
+				<string>Generating...</string>
+				<key>script</key>
+				<string>ruby lpvm.rb generate-password "{query}"</string>
+				<key>subtext</key>
+				<string>Generate a random, unique password.</string>
+				<key>title</key>
+				<string>LP Vault Manager: Generate Password</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>035E995B-FCA6-4A38-991B-6A30FC6B532A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Password copied to clipboard!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>0D677B8B-9F61-4E11-9CD6-7D36C7549C5F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># LP Vault Manager
+
+**[DOWNLOAD](https://github.com/bachya/lp-vault-manager/releases/download/2.0/LP.Vault.Manager.alfredworkflow)**
+
+LP Vault manager is an [Alfred 2](http://www.alfredapp.com/) workflow to interact with a [LastPass](http://www.lastpass.com) vault.
+
+With it, you can:
+
+* search an individual vault.
+* launch a vault URL in the default browser.
+* copy a vault item's username.
+* copy vault item's password.
+* generate a random password.
+
+## Initializing the Workflow
+
+### Install lastpass-cli
+
+The engine that drives the ability to interact with LastPass remotely is [LastPass' own lastpass-cli command line tool](https://github.com/LastPass/lastpass-cli). Therefore, the first step is to ensure that this is installed on your machine. Helpful hint: [the Homebrew method](https://github.com/LastPass/lastpass-cli#installing-on-os-x) is my recommended method.
+
+By default, laspass-cli requires you to execute the command:
+
+`/usr/local/bin/lpass login &lt;USERNAME&gt;`
+
+...and input the vault's master password. As expected, lastpass-cli requires this to happen after a certain time interval; since this can cause the Alfred workflow to stop working at various points, it is recommended that you prevent the credentials from timing out:
+
+```bash
+# The following sets the timeout cancellation for
+# the current shell; you can always put this in
+# ~/.bashrc, ~/.profile, ~/.zshrc, etc. to make
+# it permanent.
+export LPASS_AGENT_TIMEOUT=0
+```
+
+If that offends a security-conscious mind, no pressure; just keep in mind that you'll have to periodically rerun:
+
+`/usr/local/bin/lpass login &lt;USERNAME&gt;`
+
+...to get it working again (with no warning, mind you – you'll only know because the workflow stops working).
+
+### Storing the Path to lastpass-cli
+
+Since Alfred doesn't give an easy ability to store workflow-wide variables, the `LPASS_PATH` environment variable
+can be used:
+
+```bash
+# The following sets the path to the lpass
+# executable in the current shell; you can
+# always put this in ~/.bashrc, ~/.profile,
+# ~/.zshrc, etc. to make it permanent.
+export LPASS_PATH=/usr/local/bin/lpass
+```
+
+If this variable isn't set, LP Vault Manager will attempt to automagically deduce its location. But that takes a microsecond
+longer, so if speed is the name of your game, make sure to set the `LPASS_PATH` variable.
+
+## Caching Data
+
+Alfred Script Filters have [a strange quirk](http://goo.gl/JS1BUK) that must be worked around:
+
+1. A Script Filter is executed regularly as the user types.
+2. Each time it is run, a new process is spun up and the previous processes continuing running.
+3. If the `lpass` command is slow, the Script Filter results will change while the workflow is running.
+
+This leads to a less-than-ideal user experience. Therefore, I made a hard decision: in order to speed
+up the process, I cache your vault data to your local filesystem. It should be perfectly safe there, but
+as I cannot fully verify the veracity of that statement, you should be aware.
+
+The first time data is requested from LastPass, the data is cached automatically. You always have the option
+to force download it:
+
+`lpdd`
+
+![lpdd Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpdd-screenshot.png)
+
+## Searching a Vault
+
+`lpvs &lt;QUERY&gt;`
+
+![lpvs Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpvs-screenshot.png)
+
+The query is run against vault item names and URLs. When results appear, there are several actions you can take on them:
+
+* Select an item to launch its URL in the default browser.
+* ⌘-Click an item to copy its password to the system clipboard.
+* Shift-Click an item to copy its username to the system clipboard.
+
+## Password Generation
+
+`lppg &lt;OPTIONAL PASSWORD LENGTH&gt;`
+
+![lppg Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lppg-screenshot.png)
+
+Select an item to copy the generated password to the system clipboard.
+
+### Configuration
+
+Configuration occurs within the Ruby script (`lpvm.rb`, found inside the workflow folder):
+
+```ruby
+### CONSTANTS ###
+NUM_PASSWORDS = 10         # The number of passwords to generate
+DEFAULT_PASSWORD_LEN = 20  # The default length (if no arg is specified)
+USE_NUMBERS = true         # Whether the password should include numbers
+USE_SYMBOLS = true         # Whether the passwork should include symbols
+AVOID_AMBIGUOUS = true     # Whether ambiguous chars should be ignored
+```
+
+# Bugs and Feature Requests
+
+To report bugs with or suggest features/changes for LP Vault Manager, please use
+the [Issues Page](https://github.com/bachya/lp-vault-manager/issues).
+
+Contributions are welcome and encouraged. To contribute:
+
+* [Fork LP Vault Manager](http://github.com/bachya/lp-vault-manager/fork).
+* Create a branch for your contribution (`git checkout -b new-feature`).
+* Commit your changes (`git commit -am 'Added this new feature'`).
+* Push to the branch (`git push origin new-feature`).
+* Create a new [Pull Request](http://github.com/bachya/lp-vault-manager/compare/).
+
+# License
+
+(The MIT License)
+
+Copyright © 2014 Aaron Bach &lt;bachya1208@gmail.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the 'Software'), to deal in the
+Software without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+	<key>uidata</key>
+	<dict>
+		<key>035E995B-FCA6-4A38-991B-6A30FC6B532A</key>
+		<dict>
+			<key>ypos</key>
+			<real>830</real>
+		</dict>
+		<key>0AD04FCE-061A-4654-8E75-1538998B0DE4</key>
+		<dict>
+			<key>ypos</key>
+			<real>70</real>
+		</dict>
+		<key>0D677B8B-9F61-4E11-9CD6-7D36C7549C5F</key>
+		<dict>
+			<key>ypos</key>
+			<real>920</real>
+		</dict>
+		<key>0DC688D3-83D8-4882-A256-DF1E52C68B82</key>
+		<dict>
+			<key>ypos</key>
+			<real>70</real>
+		</dict>
+		<key>119B6DAF-D5F6-4F4B-B635-DCF4E1E21B39</key>
+		<dict>
+			<key>ypos</key>
+			<real>510</real>
+		</dict>
+		<key>255F0FC5-B116-4736-A365-62B279A3C701</key>
+		<dict>
+			<key>ypos</key>
+			<real>400</real>
+		</dict>
+		<key>32D7BE8F-CD60-4080-8325-68755BB8F844</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>46B91814-4A40-4433-ADB1-7D3DC4971974</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
+		</dict>
+		<key>4A8B9F8C-D39F-48A1-8DD1-0B6154B18A26</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>92E7F577-202E-4154-AD1E-A9DCDD740928</key>
+		<dict>
+			<key>ypos</key>
+			<real>400</real>
+		</dict>
+		<key>C61E7E8D-1162-4814-86E1-A060F11AACE6</key>
+		<dict>
+			<key>ypos</key>
+			<real>70</real>
+		</dict>
+		<key>CD0B96F2-2D85-49D8-84F3-4FBF112F5884</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
+		</dict>
+		<key>E1CB7919-5A47-4681-B1A0-E8521C8D38FF</key>
+		<dict>
+			<key>ypos</key>
+			<real>290</real>
+		</dict>
+		<key>FBA114AE-E715-4DF3-A492-15F35A2AADC1</key>
+		<dict>
+			<key>ypos</key>
+			<real>750</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://www.bachyaproductions.com</string>
+</dict>
+</plist>
