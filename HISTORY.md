@@ -1,3 +1,7 @@
+# Release v3.1
+
+* Environment-proofed Python path in all scripts and Script Filters.
+
 # Release v3.0 (2014-12-29)
 
 * Shifted from Ruby to Python.

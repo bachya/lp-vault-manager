@@ -122,6 +122,11 @@ Again, I am committed to being secure with your data. If you have further concer
 
 Check out [this discussion on the Alfred forum](http://www.alfredforum.com/topic/991-anyway-to-delay-script-filter-from-running-ie-wait-until-user-has-stopped-typing-or-at-least-paused/). Long story short, Alfred processes every key press when running a Script Filter *and doesn't kill previous iterations of that script*. Sounds like it'll be addressed in Alfred 2.6.
 
+## Q: How come Firefox/Opera/etc. isn't an option when I run the `lpsetbrowser` command?
+A: Since I use Applescript for the application-level scripting necessary to grab the URL from the browser's tab, I need a browser that has Applescript support for that activity. Unfortunately, many browsers – including Firefox – don't support it. See [this Alfred forum topic](http://www.alfredforum.com/topic/2013-how-to-get-frontmost-tab%E2%80%99s-url-and-title-of-various-browsers/) for more info.
+
+If there is a particular browser that I don't yet support, but does have the requisite Applescript capabilities, let me know via the [Issues Page](https://github.com/bachya/lp-vault-manager/issues).
+
 ## Q: Didn't this project used to be Ruby-based? Why does it now use Python?
 A: During initial development, I found myself tackling a number of fairly common challenges: data caching, fuzzy searching, configuration management, and more. As I looked at other Alfred workflows, I noticed that several developers had started to write libraries to work with Alfred in their preferred language. I decided to do the same.
 
@@ -139,6 +144,12 @@ Contributions are welcome and encouraged. To contribute:
 * Commit your changes (`git commit -am 'Added this new feature'`).
 * Push to the branch (`git push origin new-feature`).
 * Create a new [Pull Request](http://github.com/bachya/lp-vault-manager/compare/).
+
+# Credits and Thanks
+
+* [LastPass](https://lastpass.com/) for their great product and for allowing me to use their iconography.
+* [Dean Jackson](https://github.com/deanishe) for his excellent [Alfred-Workflow](https://github.com/deanishe/alfred-workflow) Python library.
+* [IcoMoon](https://icomoon.io/) for the browser icons used in `lpsetbrowser`.
 
 # License
 
