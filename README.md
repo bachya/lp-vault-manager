@@ -1,24 +1,27 @@
-# LP Vault Manager
+# LastPass Vault Manager
 
 **[DOWNLOAD](https://github.com/bachya/lp-vault-manager/releases/download/2.0/LP.Vault.Manager.alfredworkflow)**
 
 LP Vault manager is an [Alfred 2](http://www.alfredapp.com/) workflow to interact with a [LastPass](http://www.lastpass.com) vault.
 
+![LastPass Vault Manager in action](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpvm.gif)
+
 With it, you can:
 
-* search an individual vault.
+* search a vault by query.
+* search a vault by your browser's front-most tab.
 * launch a vault URL in the default browser.
 * copy a vault item's username.
 * copy vault item's password.
-* generate a random password.
+* generate random passwords.
+* manage many different configuration options.
+* much more!
 
-## Initializing the Workflow
+# Initializing the Workflow
 
-### Install lastpass-cli
+The engine that drives the ability to interact with LastPass remotely is [LastPass' own lastpass-cli command line tool](https://github.com/LastPass/lastpass-cli). Therefore, the first step is to ensure that this is installed on your machine. Helpful hint: [the Homebrew method](https://github.com/LastPass/lastpass-cli#installing-on-os-x) is my recommended method. *Make sure the version you install has the ability to run `lpass export` – not all versions do!*
 
-The engine that drives the ability to interact with LastPass remotely is [LastPass' own lastpass-cli command line tool](https://github.com/LastPass/lastpass-cli). Therefore, the first step is to ensure that this is installed on your machine. Helpful hint: [the Homebrew method](https://github.com/LastPass/lastpass-cli#installing-on-os-x) is my recommended method.
-
-By default, laspass-cli requires you to execute the command:
+By default, laspass-cli requires you to log into LastPass:
 
 `/usr/local/bin/lpass login <USERNAME>`
 
@@ -32,79 +35,97 @@ By default, laspass-cli requires you to execute the command:
 export LPASS_AGENT_TIMEOUT=0
 ```
 
-If that offends a security-conscious mind, no pressure; just keep in mind that you'll have to periodically rerun:
+If that offends a security-conscious mind, don't feel pressure to disable the timeout. The workflow is smart enough to notify you if you need to log in again:
 
-`/usr/local/bin/lpass login <USERNAME>`
+![Please re-login](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/relogin-screenshot.png)
 
-...to get it working again (with no warning, mind you – you'll only know because the workflow stops working).
+# Commands
 
-### Storing the Path to lastpass-cli
+## Searching a Vault (based on query)
 
-Since Alfred doesn't give an easy ability to store workflow-wide variables, the `LPASS_PATH` environment variable
-can be used:
+**Command:** `lpvs <QUERY>`
 
-```bash
-# The following sets the path to the lpass
-# executable in the current shell; you can
-# always put this in ~/.bashrc, ~/.profile,
-# ~/.zshrc, etc. to make it permanent.
-export LPASS_PATH=/usr/local/bin/lpass
-```
+![`lpvs` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpvs-screenshot.png)
 
-If this variable isn't set, LP Vault Manager will attempt to automagically deduce its location. But that takes a microsecond
-longer, so if speed is the name of your game, make sure to set the `LPASS_PATH` variable.
+**Description:** Searches the associated LastPass vault (more specifically, searches the URL and Hostname fields of all vault items) for the provided query.
+**Default Action:** Open URL in default browser
+**Modifiers:**
 
-## Caching Data
-
-Alfred Script Filters have [a strange quirk](http://goo.gl/JS1BUK) that must be worked around:
-
-1. A Script Filter is executed regularly as the user types.
-2. Each time it is run, a new process is spun up and the previous processes continuing running.
-3. If the `lpass` command is slow, the Script Filter results will change while the workflow is running.
-
-This leads to a less-than-ideal user experience. Therefore, I made a hard decision: in order to speed
-up the process, I cache your vault data to your local filesystem. It should be perfectly safe there, but
-as I cannot fully verify the veracity of that statement, you should be aware.
-
-The first time data is requested from LastPass, the data is cached automatically. You always have the option
-to force download it:
-
-`lpdd`
-
-![lpdd Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpdd-screenshot.png)
-
-## Searching a Vault
-
-`lpvs <QUERY>`
-
-![lpvs Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lpvs-screenshot.png)
-
-The query is run against vault item names and URLs. When results appear, there are several actions you can take on them:
-
-* Select an item to launch its URL in the default browser.
 * ⌘-Click an item to copy its password to the system clipboard.
 * Shift-Click an item to copy its username to the system clipboard.
 
-## Password Generation
+**Relevant Configuration Options:**
 
-`lppg <OPTIONAL PASSWORD LENGTH>`
+* `lpsetcache`
 
-![lppg Screenshot](https://github.com/bachya/lp-vault-manager/blob/master/support/readme-images/lppg-screenshot.png)
+## Searching a Vault (based on current URL)
 
-Select an item to copy the generated password to the system clipboard.
+**Command:** `lpbrowser`
 
-### Configuration
+![`lpbrowser` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpbrowser-screenshot.png)
 
-Configuration occurs within the Ruby script (`lpvm.rb`, found inside the workflow folder):
+**Description:** Searches the associated LastPass vault (more specifically, searches the URL of all vault items) for the URL of the front-most tab in the user's default browser (set by the `lpsetbrowser` command).
+**Default Action:** Open URL in default browser
+**Modifiers:**
 
-```ruby
-### CONSTANTS ###
-NUM_PASSWORDS = 10         # The number of passwords to generate
-DEFAULT_PASSWORD_LEN = 20  # The default length (if no arg is specified)
-USE_NUMBERS = true         # Whether the password should include numbers
-USE_SYMBOLS = true         # Whether the passwork should include symbols
-AVOID_AMBIGUOUS = true     # Whether ambiguous chars should be ignored
-```
+* ⌘-Click an item to copy its password to the system clipboard.
+* Shift-Click an item to copy its username to the system clipboard.
+
+**Relevant Configuration Options:**
+
+* `lpsetcache`
+* `lpsetbrowser`
+
+## Generating Random Passwords
+
+**Command:** `lppg`
+
+![`lppg` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lppg-screenshot.png)
+
+**Description:** Generates a number of random passwords.
+**Default Action:** Copy the password to the system clipboard.
+**Relevant Configuration Options:**
+
+* `lpsetpwlen`
+* `lpsetpwnum`
+
+## Re-Caching Data
+
+**Command:** `lpdd`
+
+![`lpdd` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpdd-screenshot.png)
+
+**Description:** Destroys the cached LastPass metadata and re-downloads it.
+**Default Action:** N/A
+**Relevant Configuration Options:** N/A
+
+## Setting Configuration Options
+
+* `lpsetcache <TIMEOUT_IN_SECONDS>`: sets the amount of time the LastPass metadata should be cached for.
+* `lpsetbrowser`: sets the user's default browser (primarily used for the `lpbrowser` command).
+* `lpsetpwlen <LENGTH_INTEGER>`: sets the length of the passwords generated by `lppg`.
+* `lpsetpwnum <NUMBER_INTEGER>`: sets the number of passwords generated by `lppg`.
+
+# Q&A
+
+## Q: You mention data caching in several places. What exactly is cached? I'm concerned that my LastPass data is being stored insecurely.
+A: I take security considerations very seriously. At the same time, I want this workflow to provide a speedy user experience. With that said, here's how caching works:
+
+1. LastPass Vault Manager caches data from the results of `lpass export`.
+2. ***Of the data that `lpass export` returns, only the URL and Hostname fields are stored in the local cache. All other data is thrown away immediately.***
+3. LastPass Vault Manager searches across the URL and Hostname fields, either via query (if using `lpvs`) or the URL of the default browser's front-most tab (if using `lpbrowser`).
+4. LastPass Vault Manager uses `lpass show <HOSTNAME>` to grab other fields for use in the workflow. ***None of these additional fields are ever stored to disk.***
+
+Again, I am committed to being secure with your data. If you have further concerns, please reach out to me via the [Issues Page](https://github.com/bachya/lp-vault-manager/issues).
+
+## Q: I'm noticing something strange: when I type a query into `lpvs`, it seems as though other results appear for a split second before the correct ones do. What's going on?
+
+Check out [this discussion on the Alfred forum](http://www.alfredforum.com/topic/991-anyway-to-delay-script-filter-from-running-ie-wait-until-user-has-stopped-typing-or-at-least-paused/). Long story short, Alfred processes every key press when running a Script Filter *and doesn't kill previous iterations of that script*. Sounds like it'll be addressed in Alfred 2.6.
+
+## Q: Didn't this project used to be Ruby-based? Why does it now use Python?
+A: During initial development, I found myself tackling a number of fairly common challenges: data caching, fuzzy searching, configuration management, and more. As I looked at other Alfred workflows, I noticed that several developers had started to write libraries to work with Alfred in their preferred language. I decided to do the same.
+
+After some tinkering, I ran across [Alfred-Workflow](https://github.com/deanishe/alfred-workflow), a Python library designed to manage all of my challenges and more. It was too beautiful not to try; plus, it gives me the opportunity to get better at Python.
 
 # Bugs and Feature Requests
 
