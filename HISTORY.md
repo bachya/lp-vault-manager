@@ -1,3 +1,11 @@
+# Release v3.0 (2014-12-29)
+
+* Shifted from Ruby to Python.
+* Implemented [Alfred-Workflow](https://github.com/deanishe/alfred-workflow) (including fuzzy search, configuration management, and more).
+* Added `lpbrowser` command to look up default browser's front-most tab's URL in the vault.
+* Configuration management: cache timeout, default browser, number of generated password, and generated password length.
+* Check for whether `lpass` is logged in.
+
 # Release v2.0 (2014-12-16)
 
 * Added data caching
