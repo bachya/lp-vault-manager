@@ -1,6 +1,6 @@
 # LastPass Vault Manager
 
-**[DOWNLOAD](https://github.com/bachya/lp-vault-manager/releases/download/2.0/LP.Vault.Manager.alfredworkflow)**
+**[DOWNLOAD](https://github.com/bachya/lp-vault-manager/releases/download/v3.0/LastPass.Vault.Manager.alfredworkflow)**
 
 LP Vault manager is an [Alfred 2](http://www.alfredapp.com/) workflow to interact with a [LastPass](http://www.lastpass.com) vault.
 
