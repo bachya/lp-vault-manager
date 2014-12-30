@@ -8,28 +8,6 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>06897D2C-0F2C-4E11-9F1A-32CF81E5CB8F</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>6EC1358A-3196-423F-AFA1-C7DE201B4BAB</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>0F97CEE6-C7F2-451B-911B-145314B3B5B3</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>572F5564-22F7-4ACC-85ED-A54B41A90F51</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</key>
 		<array>
 			<dict>
@@ -68,17 +46,6 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>43064608-42C5-4252-8397-6FAAE33336DD</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>810E1502-5C17-4303-BB1E-58E88A40FDC5</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>5A649226-EC07-4CF4-8BC3-33488206FEA3</key>
 		<array>
 			<dict>
@@ -106,46 +73,13 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>6EC1358A-3196-423F-AFA1-C7DE201B4BAB</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>A2D49A9B-CF24-4AEF-B885-91D1EFF197D2</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>7C1EC497-56C4-44D7-BE21-B059B4233A2B</key>
 		<array/>
-		<key>810E1502-5C17-4303-BB1E-58E88A40FDC5</key>
+		<key>8A1CA7DC-7A5E-4B3C-BA1B-693E97B5D125</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>17FB393B-025C-4F31-B647-A83C27C84082</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>B5AD9C2D-22A5-4AE4-AC45-90D9A367F4A8</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>BD6E40B8-E414-437E-A83A-137BF866F9F0</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>BD6E40B8-E414-437E-A83A-137BF866F9F0</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>2268EF15-C256-459A-A6D1-8CC54231CDA4</string>
+				<string>D029591F-7038-456D-9605-48764DF5DA31</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -165,6 +99,17 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>85AE1189-23E0-430C-B75F-FF12B7441A84</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>D029591F-7038-456D-9605-48764DF5DA31</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9F678088-05F8-45D6-877F-49117999F415</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -203,17 +148,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>F9CC3250-450B-48DB-BEBB-1A551EA6D50A</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>F31A6B61-F802-4906-8B93-2951C0711309</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>0F97CEE6-C7F2-451B-911B-145314B3B5B3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -294,7 +228,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python lpvm.py download-data</string>
+				<string>/usr/bin/env python lpvm.py download-data</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -332,7 +266,7 @@
 				<key>runningsubtext</key>
 				<string>Searching vault...</string>
 				<key>script</key>
-				<string>python lpvm.py search-vault "{query}"</string>
+				<string>/usr/bin/env python lpvm.py search-vault "{query}"</string>
 				<key>subtext</key>
 				<string>Type a query to start searching your vault</string>
 				<key>title</key>
@@ -355,7 +289,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python lpvm.py get-password "{query}"</string>
+				<string>/usr/bin/env python lpvm.py get-password "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -397,7 +331,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python lpvm.py open-url "{query}"</string>
+				<string>/usr/bin/env python lpvm.py open-url "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -414,7 +348,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python lpvm.py get-username "{query}"</string>
+				<string>/usr/bin/env python lpvm.py get-username "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -452,7 +386,7 @@
 				<key>runningsubtext</key>
 				<string>Searching vault...</string>
 				<key>script</key>
-				<string>python lpvm.py search-url</string>
+				<string>/usr/bin/env python lpvm.py search-url</string>
 				<key>subtext</key>
 				<string>Hit ENTER to search the vault, using the URL of the default browser's active tab.</string>
 				<key>title</key>
@@ -496,7 +430,7 @@
 				<key>runningsubtext</key>
 				<string>Generating passwords...</string>
 				<key>script</key>
-				<string>python lpvm.py generate-passwords</string>
+				<string>/usr/bin/env python lpvm.py generate-passwords</string>
 				<key>subtext</key>
 				<string>Hit ENTER to generate a number of randomized passwords.</string>
 				<key>title</key>
@@ -551,32 +485,13 @@
 				<false/>
 				<key>sticky</key>
 				<false/>
-				<key>text</key>
-				<string>New timeout: {query}</string>
 				<key>title</key>
-				<string>Cache timeout set!</string>
+				<string>{query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>17FB393B-025C-4F31-B647-A83C27C84082</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python lpvm.py set-cache-timeout "{query}"</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>810E1502-5C17-4303-BB1E-58E88A40FDC5</string>
+			<string>9F678088-05F8-45D6-877F-49117999F415</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -584,112 +499,26 @@
 			<key>config</key>
 			<dict>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>116</integer>
 				<key>keyword</key>
-				<string>lpsetcache</string>
+				<string>lpsettings</string>
+				<key>script</key>
+				<string>/usr/bin/env python settings.py "{query}"</string>
 				<key>subtext</key>
-				<string>Input the number of seconds data should be cached.</string>
-				<key>text</key>
-				<string>Set Cache Timeout</string>
+				<string>Modify settings and more.</string>
+				<key>title</key>
+				<string>LastPass Vault Manager Settings</string>
+				<key>type</key>
+				<integer>0</integer>
 				<key>withspace</key>
 				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>43064608-42C5-4252-8397-6FAAE33336DD</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python lpvm.py set-browser "{query}"</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>BD6E40B8-E414-437E-A83A-137BF866F9F0</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>keyword</key>
-				<string>lpsetbrowser</string>
-				<key>runningsubtext</key>
-				<string>Searching browsers...</string>
-				<key>script</key>
-				<string>python lpvm.py search-browsers</string>
-				<key>subtext</key>
-				<string>Select your default browser.</string>
-				<key>title</key>
-				<string>Set Default Browser</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>B5AD9C2D-22A5-4AE4-AC45-90D9A367F4A8</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>New browser: {query}</string>
-				<key>title</key>
-				<string>Browser timeout set!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>2268EF15-C256-459A-A6D1-8CC54231CDA4</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>lpsetpwnum</string>
-				<key>subtext</key>
-				<string>Input whole integers greater than 0, please!</string>
-				<key>text</key>
-				<string>Set Number of Passwords to Generate</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>F31A6B61-F802-4906-8B93-2951C0711309</string>
+			<string>8A1CA7DC-7A5E-4B3C-BA1B-693E97B5D125</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -699,134 +528,26 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python lpvm.py set-password-number "{query}"</string>
+				<string>/usr/bin/env python settings.py {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>0F97CEE6-C7F2-451B-911B-145314B3B5B3</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>New amount: {query}</string>
-				<key>title</key>
-				<string>Password number set!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>572F5564-22F7-4ACC-85ED-A54B41A90F51</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>New length: {query}</string>
-				<key>title</key>
-				<string>Password length set!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>A2D49A9B-CF24-4AEF-B885-91D1EFF197D2</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>lpsetpwlen</string>
-				<key>subtext</key>
-				<string>Input whole integers greater than 0, please!</string>
-				<key>text</key>
-				<string>Set Length of Generated Passwords</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>06897D2C-0F2C-4E11-9F1A-32CF81E5CB8F</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python lpvm.py set-password-length "{query}"</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6EC1358A-3196-423F-AFA1-C7DE201B4BAB</string>
+			<string>D029591F-7038-456D-9605-48764DF5DA31</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>https://github.com/bachya/lp-vault-manager</string>
 	<key>uidata</key>
 	<dict>
-		<key>06897D2C-0F2C-4E11-9F1A-32CF81E5CB8F</key>
-		<dict>
-			<key>ypos</key>
-			<real>1070</real>
-		</dict>
-		<key>0F97CEE6-C7F2-451B-911B-145314B3B5B3</key>
-		<dict>
-			<key>ypos</key>
-			<real>960</real>
-		</dict>
 		<key>161DCAA7-B84D-4586-9070-969856A2DF93</key>
 		<dict>
 			<key>ypos</key>
 			<real>450</real>
-		</dict>
-		<key>17FB393B-025C-4F31-B647-A83C27C84082</key>
-		<dict>
-			<key>ypos</key>
-			<real>740</real>
-		</dict>
-		<key>2268EF15-C256-459A-A6D1-8CC54231CDA4</key>
-		<dict>
-			<key>ypos</key>
-			<real>850</real>
 		</dict>
 		<key>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</key>
 		<dict>
@@ -838,60 +559,35 @@
 			<key>ypos</key>
 			<real>340</real>
 		</dict>
-		<key>43064608-42C5-4252-8397-6FAAE33336DD</key>
-		<dict>
-			<key>ypos</key>
-			<real>740</real>
-		</dict>
-		<key>572F5564-22F7-4ACC-85ED-A54B41A90F51</key>
-		<dict>
-			<key>ypos</key>
-			<real>960</real>
-		</dict>
 		<key>5A649226-EC07-4CF4-8BC3-33488206FEA3</key>
 		<dict>
 			<key>ypos</key>
 			<real>120</real>
-		</dict>
-		<key>6EC1358A-3196-423F-AFA1-C7DE201B4BAB</key>
-		<dict>
-			<key>ypos</key>
-			<real>1070</real>
 		</dict>
 		<key>7C1EC497-56C4-44D7-BE21-B059B4233A2B</key>
 		<dict>
 			<key>ypos</key>
 			<real>230</real>
 		</dict>
-		<key>810E1502-5C17-4303-BB1E-58E88A40FDC5</key>
-		<dict>
-			<key>ypos</key>
-			<real>740</real>
-		</dict>
 		<key>85AE1189-23E0-430C-B75F-FF12B7441A84</key>
 		<dict>
 			<key>ypos</key>
 			<real>230</real>
+		</dict>
+		<key>8A1CA7DC-7A5E-4B3C-BA1B-693E97B5D125</key>
+		<dict>
+			<key>ypos</key>
+			<real>740</real>
 		</dict>
 		<key>9E1D7FB6-A0D9-451F-8946-2F0C06E1AA2B</key>
 		<dict>
 			<key>ypos</key>
 			<real>120</real>
 		</dict>
-		<key>A2D49A9B-CF24-4AEF-B885-91D1EFF197D2</key>
+		<key>9F678088-05F8-45D6-877F-49117999F415</key>
 		<dict>
 			<key>ypos</key>
-			<real>1070</real>
-		</dict>
-		<key>B5AD9C2D-22A5-4AE4-AC45-90D9A367F4A8</key>
-		<dict>
-			<key>ypos</key>
-			<real>850</real>
-		</dict>
-		<key>BD6E40B8-E414-437E-A83A-137BF866F9F0</key>
-		<dict>
-			<key>ypos</key>
-			<real>850</real>
+			<real>740</real>
 		</dict>
 		<key>CD4CE0A3-FC4A-41D2-9609-22CD6F5831D1</key>
 		<dict>
@@ -902,6 +598,11 @@
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
+		</dict>
+		<key>D029591F-7038-456D-9605-48764DF5DA31</key>
+		<dict>
+			<key>ypos</key>
+			<real>740</real>
 		</dict>
 		<key>D9145DF0-637F-446C-9D2C-8E01E258830A</key>
 		<dict>
@@ -917,11 +618,6 @@
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
-		</dict>
-		<key>F31A6B61-F802-4906-8B93-2951C0711309</key>
-		<dict>
-			<key>ypos</key>
-			<real>960</real>
 		</dict>
 		<key>F9CC3250-450B-48DB-BEBB-1A551EA6D50A</key>
 		<dict>

@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 from urlparse import urlparse
-from workflow import Workflow, ICON_WARNING, MATCH_ALL, MATCH_ALLCHARS
+from workflow import Workflow, MATCH_ALL, MATCH_ALLCHARS
 
 import argparse
 import subprocess
@@ -77,39 +77,6 @@ def generate_passwords(wf, vault):
     wf.send_feedback()
 
 
-def search_browsers(wf, vault):
-    """
-    Displays Script Filter-friendly XML that
-    allows a user to select their default
-    web browser.
-    """
-    browsers = [
-        {
-            'icon': 'icons/chrome.png',
-            'name': 'Google Chrome',
-            'value': BROWSER_CHROME,
-        },
-        {
-            'icon': 'icons/safari.png',
-            'name': 'Safari',
-            'value': BROWSER_SAFARI,
-        },
-    ]
-
-    for browser in browsers:
-        wf.add_item(
-            browser['name'],
-            'Click to set ' + browser['name'] + ' as the default browser.',
-            arg='{}***{}'.format(browser['name'], browser['value']),
-            autocomplete=browser['name'],
-            valid=True,
-            uid=str(browser['value']),
-            icon=browser['icon']
-        )
-
-    wf.send_feedback()
-
-
 def search_item_fields(item):
     """
     The function used to search individual lastpass
@@ -130,14 +97,15 @@ def search_url(wf, vault):
     browser = wf.settings['general']['browser']
     url = subprocess.check_output(
         ['osascript',
-         'lib/get-url-from-browser.scpt',
+         'get-url-from-browser.scpt',
          str(browser)]
     ).rstrip()
 
+    uri = '{uri.netloc}'.format(uri=urlparse(url))
     results = _search_vault(
         wf,
         vault,
-        '{uri.netloc}'.format(uri=urlparse(url))
+        uri
     )
     if results:
         for result in results:
@@ -157,9 +125,9 @@ def search_url(wf, vault):
             )
     else:
         wf.add_item(
-            'No items matching the current URL.',
+            'No items matching the {}.'.format(uri),
             valid=False,
-            icon=ICON_WARNING
+            icon='icons/warning.png'
         )
 
     wf.send_feedback()
@@ -191,38 +159,10 @@ def search_vault(wf, vault, query):
         wf.add_item(
             'No items matching ' + query,
             valid=False,
-            icon=ICON_WARNING
+            icon='icons/warning.png'
         )
 
     wf.send_feedback()
-
-
-def set_cache_timeout(wf, vault, query):
-    """
-    Sets a default cache timeout.
-    """
-    try:
-        timeout = int(query)
-    except ValueError:
-        timeout = vault.DEFAULT_CACHE_TIMEOUT
-    wf.settings['general']['cache_bust'] = timeout
-    wf.settings.save()
-    print(str(timeout) + ' seconds')
-
-
-def set_password_number(wf, vault, query):
-    """
-    Sets a default number of passwords to generate.
-    """
-    try:
-        number = int(query)
-        if number <= 0:
-            number = vault.DEFAULT_PASSWORD_NUMBER
-    except ValueError:
-        number = vault.DEFAULT_PASSWORD_NUMBER
-    wf.settings['passwords']['number'] = number
-    wf.settings.save()
-    print(str(number) + ' passwords')
 
 
 def set_password_length(wf, vault, query):
@@ -263,9 +203,9 @@ def main(wf):
     except subprocess.CalledProcessError:
         wf.add_item(
             'Not logged in to LastPass!',
-            'Log in by running `lpass login <USERNAME>` from the Terminal.',
+            'Log in by running `lpsettings` and following along.',
             valid=False,
-            icon=ICON_WARNING
+            icon='icons/warning.png'
         )
 
         wf.send_feedback()
@@ -301,11 +241,6 @@ def main(wf):
         subprocess.call(['open', url])
         return 0
 
-    # Search Browsers:
-    elif args.command == 'search-browsers':
-        search_browsers(wf, vault)
-        return 0
-
     # Search Vault:
     elif args.command == 'search-vault':
         search_vault(wf, vault, args.query)
@@ -316,29 +251,9 @@ def main(wf):
         search_url(wf, vault)
         return 0
 
-    # Set Browser:
-    elif args.command == 'set-browser':
-        query = args.query.split('***')
-        wf.settings['general']['browser'] = query[1]
-        wf.settings.save()
-        print(query[0])
-        return 0
-
-    # Set Cache Timeout:
-    elif args.command == 'set-cache-timeout':
-        set_cache_timeout(wf, vault, args.query)
-        return 0
-
     # Set Length of Passwords
     elif args.command == 'set-password-length':
         set_password_length(wf, vault, args.query)
-        return 0
-
-    # Set Number of Passwords
-    elif args.command == 'set-password-number':
-        set_password_number(wf, vault, args.query)
-        return 0
-    else:
         return 0
 
 if __name__ == '__main__':
