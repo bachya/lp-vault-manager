@@ -1,5 +1,10 @@
 # Release v3.1
 
+* Entirely new settings/configuration management via `lpsettings`.
+* Added ability to login to LastPass.
+* Added ability to logout from LastPass.
+* Added ability to configure filepath to `lpass`.
+* Added new (and slimmer) icons.
 * Environment-proofed Python path in all scripts and Script Filters.
 
 # Release v3.0 (2014-12-29)
