@@ -58,7 +58,9 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 ![`lpvs` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpvs-screenshot.png)
 
 **Description:** Searches the associated LastPass vault (more specifically, searches the URL and Hostname fields of all vault items) for the provided query.
+
 **Default Action:** Open URL in default browser
+
 **Modifiers:**
 
 * ⌘-Click an item to copy its password to the system clipboard.
@@ -71,7 +73,9 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 ![`lpbrowser` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpbrowser-screenshot.png)
 
 **Description:** Searches the associated LastPass vault (more specifically, searches the URL of all vault items) for the URL of the front-most tab in the user's default browser (set by the `lpsetbrowser` command).
+
 **Default Action:** Open URL in default browser
+
 **Modifiers:**
 
 * ⌘-Click an item to copy its password to the system clipboard.
@@ -84,6 +88,7 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 ![`lppg` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lppg-screenshot.png)
 
 **Description:** Generates a number of random passwords.
+
 **Default Action:** Copy the password to the system clipboard.
 
 ## Re-Caching Data
@@ -93,7 +98,9 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 ![`lpdd` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpdd-screenshot.png)
 
 **Description:** Destroys the cached LastPass metadata and re-downloads it.
+
 **Default Action:** N/A
+
 **Relevant Configuration Options:** N/A
 
 ## Setting Configuration Options
