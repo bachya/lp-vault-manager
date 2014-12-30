@@ -1,4 +1,4 @@
-# Release v3.1
+# Release v3.1 (2014-12-29)
 
 * Entirely new settings/configuration management via `lpsettings`.
 * Added ability to login to LastPass.
