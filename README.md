@@ -110,6 +110,7 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 ![`lpsettings` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpsettings-screenshot.png)
 
 **Description:** A nice, guided approach to managing the various settings that LastPass Vault Manager exposes.
+
 **Settings:**
 
 * Set Default Browser (for use in `lpbrowser`)
@@ -122,7 +123,7 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 * Modify Password Settings
     * Set number of passwords
     * Set password length
-* Edit Config File
+* Edit Config File (in case you want to do it the power-user way)
 * View Repository
 
 # Q&A
