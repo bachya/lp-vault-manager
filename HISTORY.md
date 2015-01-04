@@ -1,3 +1,8 @@
+# Release v3.2 (2015-01-04)
+
+* Added support for non-ASCII characters.
+* Modified notifications to be more streamlined.
+
 # Release v3.1 (2014-12-29)
 
 * Entirely new settings/configuration management via `lpsettings`.
