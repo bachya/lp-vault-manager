@@ -179,6 +179,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>escaping</key>
+				<integer>116</integer>
+				<key>script</key>
+				<string>/usr/bin/env python lpvm.py download-data</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F9CC3250-450B-48DB-BEBB-1A551EA6D50A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -190,9 +207,9 @@
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>Get to LastPass'n!</string>
-				<key>title</key>
 				<string>{query}</string>
+				<key>title</key>
+				<string>LastPass Vault Manager</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -228,14 +245,14 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>/usr/bin/env python lpvm.py download-data</string>
+				<string>/usr/bin/env python lpvm.py get-password "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>F9CC3250-450B-48DB-BEBB-1A551EA6D50A</string>
+			<string>CD4CE0A3-FC4A-41D2-9609-22CD6F5831D1</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -286,23 +303,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>/usr/bin/env python lpvm.py get-password "{query}"</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>CD4CE0A3-FC4A-41D2-9609-22CD6F5831D1</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -314,9 +314,9 @@
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>Paste away!</string>
-				<key>title</key>
 				<string>Data copied to clipboard!</string>
+				<key>title</key>
+				<string>LastPass Vault Manager</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -461,37 +461,14 @@
 				<key>sticky</key>
 				<false/>
 				<key>text</key>
-				<string>Paste away!</string>
-				<key>title</key>
 				<string>Password copied to clipboard!</string>
+				<key>title</key>
+				<string>LastPass Vault Manager</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>F2091268-3C3F-4C46-9E90-5EE46010B9CB</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>title</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>9F678088-05F8-45D6-877F-49117999F415</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -536,6 +513,31 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>D029591F-7038-456D-9605-48764DF5DA31</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>LastPass Vault Manager</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>9F678088-05F8-45D6-877F-49117999F415</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
