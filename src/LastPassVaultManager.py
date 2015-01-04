@@ -1,3 +1,9 @@
+# encoding: utf-8
+
+from __future__ import unicode_literals
+
+from workflow import Workflow
+
 import csv
 import random
 import string
@@ -32,7 +38,7 @@ class LastPassVaultManager:
     DEFAULT_CACHE_TIMEOUT = 300
 
     def __init__(self):
-        pass
+        self.wf = Workflow()
 
     def download_data(self):
         fields = ['url', 'hostname']
@@ -41,7 +47,9 @@ class LastPassVaultManager:
                 [self.DEFAULT_LPASS_PATH, self.LPASS_COMMAND_DOWNLOAD]
             )
             r = csv.DictReader(StringIO.StringIO(data))
-            return [{k: v for k, v in d.iteritems() if k in fields} for d in r]
+            return [{k: self.wf.decode(v)
+                     for k, v in d.iteritems() if k in fields}
+                    for d in r]
         except subprocess.CalledProcessError:
             return []
 
@@ -82,9 +90,9 @@ class LastPassVaultManager:
     def get_field_value(self, hostname, field_name):
         details = self.get_item_details(hostname)
         value = [i for i in details.split('\n') if field_name in i][0]
-        return value[value.index(': ') + len(': '):]
+        return value[value.index(': ') + len(': '):].encode('utf-8')
 
     def get_item_details(self, hostname):
-        return subprocess.check_output(
+        return self.wf.decode(subprocess.check_output(
             [self.DEFAULT_LPASS_PATH, self.LPASS_COMMAND_DETAILS, hostname]
-        )
+        ))
