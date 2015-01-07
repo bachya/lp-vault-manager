@@ -80,9 +80,17 @@ class LpvmUtilities:
             }
         )
         self.wf.settings.setdefault(
+            'lastpass',
+            {
+                'path': '/usr/local/bin/lpass',
+                'username': ''
+            }
+        )
+        self.wf.settings.setdefault(
             'passwords',
             {
                 'number': 10,
                 'length': 20
             }
         )
+        self.wf.settings.save()
