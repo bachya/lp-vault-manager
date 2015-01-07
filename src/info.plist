@@ -182,7 +182,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>/usr/bin/env python lpvm.py download-data</string>
+				<string>/usr/bin/env python exec.py download-data</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -283,7 +283,7 @@
 				<key>runningsubtext</key>
 				<string>Searching vault...</string>
 				<key>script</key>
-				<string>python lpvm.py search-vault "{query}"</string>
+				<string>/usr/bin/env python query.py search-vault "{query}"</string>
 				<key>subtext</key>
 				<string>Type a query to start searching your vault</string>
 				<key>title</key>
