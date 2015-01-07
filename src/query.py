@@ -21,7 +21,12 @@ def main(wf):
 
     # Parse the query into a command into a query:
     command = wf.args[0]
-    query = wf.args[1]
+    query = None
+    try:
+        query = wf.args[1]
+    except IndexError:
+        log.error('Query not provided.')
+        sys.exit()
 
     # Search the vault and return the necessary Script Filter XML:
     if command == 'search-vault':
