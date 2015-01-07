@@ -334,29 +334,18 @@ if __name__ == '__main__':
 
     # Initialize setting categories (unless they
     # already exist):
-    wf.settings.setdefault(
-        'general',
-        {
-            'cache_bust': 300,
-            'browser': BROWSER_CHROME
-        }
-    )
+    wf.settings['general'] = {}
+    wf.settings['general']['cache_bust'] = 300
+    wf.settings['general']['browser'] = BROWSER_CHROME
 
-    wf.settings.setdefault(
-        'lastpass',
-        {
-            'path': '/usr/local/bin/lpass',
-            'username': ''
-        }
-    )
+    wf.settings['lastpass'] = {}
+    wf.settings['lastpass']['path'] = '/usr/local/bin/lpass'
+    wf.settings['lastpass']['username'] = ''
 
-    wf.settings.setdefault(
-        'passwords',
-        {
-            'number': 10,
-            'length': 20
-        }
-    )
+    wf.settings['passwords'] = {}
+    wf.settings['passwords']['number'] = 10
+    wf.settings['passwords']['length'] = 20
+
     wf.settings.save()
 
     sys.exit(wf.run(main))
