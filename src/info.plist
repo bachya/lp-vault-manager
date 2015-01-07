@@ -283,7 +283,7 @@
 				<key>runningsubtext</key>
 				<string>Searching vault...</string>
 				<key>script</key>
-				<string>/usr/bin/env python lpvm.py search-vault "{query}"</string>
+				<string>python lpvm.py search-vault "{query}"</string>
 				<key>subtext</key>
 				<string>Type a query to start searching your vault</string>
 				<key>title</key>

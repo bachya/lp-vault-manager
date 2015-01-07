@@ -77,7 +77,7 @@ class LastPassVaultManager:
         # ambigious chars if requested:
         chars = ''.join(charsets)
         if avoid_ambiguous:
-            chars = chars.translate(None, self.CHARS_AMBIGUOUS)
+            chars = chars.translate(self.CHARS_AMBIGUOUS)
 
         passwords = []
         for i in xrange(0, number):

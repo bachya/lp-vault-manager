@@ -48,6 +48,7 @@ def _search_vault(wf, vault, query):
             match_on=MATCH_ALL ^ MATCH_ALLCHARS
         )
 
+    wf.logger.debug('SEARCH RESULTS: {}'.format(results))
     return results
 
 
@@ -57,6 +58,7 @@ def download_data(wf, vault):
     and re-downloads a copy.
     """
     data = vault.download_data()
+    wf.logger.debug('DOWNLOADED DATA: {}'.format(data))
     if data:
         wf.cache_data('vault_items', data)
         print('Metadata successfully downloaded!')
@@ -169,7 +171,7 @@ def search_vault(wf, vault, query):
             valid=False,
             icon='icons/warning.png'
         )
-
+    wf.logger.debug('XML: {}'.format(wf.send_feedback()))
     wf.send_feedback()
 
 
