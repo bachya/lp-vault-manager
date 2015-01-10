@@ -52,6 +52,12 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 
 ![Please re-login](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/relogin-screenshot.png)
 
+## Additional Alfred Configuration
+
+Make sure your Alfred's "Terminal/Shell" settings have a prefix of ">" – this is necessary if you want to use LastPass Vault Manager to log into LastPass.
+
+![Proper Prefix](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/alfred-terminal-settings-screenshot.png)
+
 # Commands
 
 ## Searching a Vault (based on query)
