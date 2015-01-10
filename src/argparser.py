@@ -28,5 +28,6 @@ class ArgParser:
             self.command = matches.group(1)
             self.arg = matches.group(2)
             self.delimiter = delimiter
+            self.query = arg_string
         except AttributeError, e:
             raise ArgParserError(e)

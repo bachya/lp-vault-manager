@@ -5,7 +5,6 @@ from argparser import ArgParser, ArgParserError
 from workflow import Workflow
 
 import re
-import subprocess
 import sys
 import utilities
 
@@ -39,19 +38,15 @@ def main(wf):
         log.error('Argument parsing failed: {}'.format(e))
         sys.exit(1)
 
-    # COMMAND: Login
-    if ap.command == 'login':
-        log.debug('Executing command: login')
-        util.login_to_lastpass()
-        util.print_utf8('Hit ENTER to login to LastPass.')
-        sys.exit(0)
-
-    # COMMAND: Open URL
-    elif ap.command == 'open-url':
-        if ap.arg:
-            log.debug('Executing command: open-url')
-            subprocess.call(['open', ap.arg])
-            util.print_utf8('Enjoy the repository and join in!')
+    # COMMAND: Download Data
+    if ap.command == 'download-data':
+        log.debug('Executing command: download-data')
+        data = util.download_data()
+        if data:
+            wf.cache_data('vault_items', data)
+            util.print_utf8('LastPass metadata successfully downloaded.')
+        else:
+            util.print_utf8('LastPass metadata download failed.')
         sys.exit(0)
     else:
         log.error('Unknown command: {}'.format(ap.command))

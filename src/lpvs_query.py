@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from argparser import ArgParser, ArgParserError
 from urlparse import urlparse
 from workflow import Workflow
+from workflow.background import is_running
 
 import re
 import subprocess
@@ -11,9 +12,9 @@ import sys
 import utilities
 
 ####################################################################
-# Actionscript Commands
+# Miscellaneous
 ####################################################################
-ALFRED_AS_PW_REGENERATE = 'tell application "Alfred 2" to search "lppg"'
+DEFAULT_COMMAND = 'search-vault-for-query'
 
 ####################################################################
 # Globals
@@ -31,34 +32,20 @@ def main(wf):
     # Parse the query into a command into a query:
     try:
         ap = ArgParser(wf.args)
-    except ArgParserError, e:
-        log.error('Argument parsing failed: {}'.format(e))
-        sys.exit(1)
+    except ArgParserError:
+        ap = ArgParser([DEFAULT_COMMAND])
 
     log.debug('Parsed command: {}'.format(ap.command))
     log.debug('Parsed argument: {}'.format(ap.arg))
     log.debug('Parsed delimiter: {}'.format(ap.delimiter))
-
-    # COMMAND: Generate Passwords
-    if ap.command == 'generate-passwords':
-        log.debug('Executing command: generate-passwords')
-        passwords = util.generate_passwords()
-        for pw in passwords:
-            wf.add_item(
-                pw,
-                'Click to copy to clipboard.',
-                arg='output-value {}'.format(pw),
-                valid=True,
-                uid=pw
-            )
-        wf.send_feedback()
-        sys.exit(0)
+    log.debug('Parsed query: {}'.format(ap.query))
 
     # COMMAND: Search Vault For Query
-    elif ap.command == 'search-vault-for-query':
+    if ap.command == 'search-vault-for-query':
         # In this case, the user is requesting a "details view" for a particular
         # hostname.
         if ap.arg and ap.arg.startswith('view-details'):
+            log.debug('Executing command: view-details')
             output_details_results(ap)
         # In this case, the user is requesting all vault items that match the
         # provided query.
@@ -80,15 +67,18 @@ def main(wf):
         )).rstrip()
         uri = str('{uri.netloc}'.format(uri=urlparse(url)))
 
+        log.debug('Decoded URI from browser: {!s}'.format(uri))
+
         # In this case, the user is requesting a "details view" for a particular
         # hostname.
         if ap.arg and ap.arg.startswith('view-details'):
+            log.debug('Executing command: view-details')
             output_details_results(ap)
         # In this case, the user is requesting all vault items that match the
         # provided query.
         else:
             log.debug('Executing command: search-vault-for-url')
-            log.debug('Searching vault for URL: {}'.format(ap.arg))
+            log.debug('Searching vault for URL: {!s}'.format(uri))
             ap.command = 'get-password'
             ap.arg = uri
             output_query_vault_results(ap)
@@ -111,6 +101,8 @@ def output_details_results(ap):
             valid=False,
             icon='icons/info.png'
         )
+
+        log.debug('Detail results: {}'.format(item_details))
 
         for i in item_details:
             pieces = i.partition(': ')
@@ -145,6 +137,17 @@ def output_query_vault_results(ap):
     Alfred Script Filter. Uses an ArgParser instance to figure out which
     command and argument to use.
     """
+    # Notify the user if the cache is being updated:
+    if is_running('update'):
+        log.debug('Currenly running update; notifying user...')
+        wf.add_item(
+            'Getting new data from LastPass.',
+            'This should only take a few moments, so hang tight.',
+            valid=False,
+            icon='icons/loading.png',
+            uid='1'
+        )
+
     results = util.search_vault_for_query(ap.arg)
     if results:
         for result in results:
@@ -163,7 +166,6 @@ def output_query_vault_results(ap):
                                         result['hostname'],
                                         result['url']),
                 autocomplete='view-details {}'.format(result['hostname']),
-                uid=result['hostname']
             )
     else:
         wf.add_item(
@@ -181,13 +183,12 @@ if __name__ == '__main__':
     wf = Workflow(libraries=['./lib'])
     log = wf.logger
 
-    # Try a simple `lpass` command; if it returns a non-zero
-    # exit status, we can safely assume that the user isn't
-    # logged into LastPass.
-    try:
-        subprocess.check_output([wf.settings['lastpass']['path'], 'ls'])
-    except subprocess.CalledProcessError:
-        log.error('Not logged into LastPass.')
+    # Configure a LpvmUtilities class:
+    util = utilities.LpvmUtilities(wf)
+
+    # Notify the user if they are not logged in:
+    if not util.is_logged_in():
+        log.warning('Not logged into LastPass.')
         wf.add_item(
             'Not logged in to LastPass.',
             'Hit ENTER to open an Alfred command to login to LastPass.',
@@ -198,9 +199,6 @@ if __name__ == '__main__':
 
         wf.send_feedback()
         sys.exit(1)
-
-    # Configure a LpvmUtilities class:
-    util = utilities.LpvmUtilities(wf)
 
     # Run!
     sys.exit(wf.run(main))

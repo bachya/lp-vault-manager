@@ -22,6 +22,7 @@ def copy_value_and_notify(value, success_msg, error_msg):
     message for Alfred to use; otherwise, outputs an error message for Alfred
     to use.
     """
+    log.debug('Outputting value to clipboard: {}'.format(value))
     if value:
         util.copy_value_to_clipboard(value)
         util.print_utf8(success_msg)
@@ -31,6 +32,7 @@ def copy_value_and_notify(value, success_msg, error_msg):
 
 
 def copy_lp_field_and_notify(hostname, field_name):
+    log.debug('Getting "{}" field from "{}"...'.format(field_name, hostname))
     value = util.get_value_from_field(hostname, field_name)
     sm = 'Copied {} for "{}" to clipboard.'.format(field_name, hostname)
     em = 'Unable to copy {} for "{}".'.format(field_name, hostname)
@@ -61,19 +63,8 @@ def main(wf):
         log.error('Argument parsing failed: {}'.format(e))
         sys.exit(1)
 
-    # COMMAND: Download Data
-    if ap.command == 'download-data':
-        log.debug('Executing command: download-data')
-        data = util.download_data()
-        if data:
-            wf.cache_data('vault_items', data)
-            util.print_utf8('LastPass metadata successfully downloaded.')
-        else:
-            util.print_utf8('LastPass metadata download failed.')
-        sys.exit(0)
-
     # COMMAND: Get Password
-    elif ap.command == 'get-password':
+    if ap.command == 'get-password':
         if ap.arg:
             log.debug('Executing command: get-password')
             copy_lp_field_and_notify(ap.arg.split('***')[0], 'password')

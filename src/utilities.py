@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 from lpvaultmanager import DEFAULT_LPASS_PATH
 from workflow import MATCH_ALL, MATCH_ALLCHARS
-from workflow.background import run_in_background, is_running
+from workflow.background import run_in_background
 
 import lpvaultmanager as lpvm
 import subprocess
@@ -70,26 +70,38 @@ class LpvmUtilities:
             self.log.error('There was an issue with LastPass: {}'.format(e))
             return []
 
+    def edit_config_file(self):
+        """
+        Opens the configuration file in TextEdit.
+        """
+        self.log.debug('Open configuration file in TextEdit.')
+        subprocess.call(['open', self.wf.settings_path])
+
     def generate_passwords(self):
         """
         Generates a selection of passwords (based on the requested settings) and
         returns them.
         """
-        pw_len = self.wf.settings['passwords']['length']
-        pw_num = self.wf.settings['passwords']['number']
+        pw_len = int(self.wf.settings['passwords']['length'])
+        pw_num = int(self.wf.settings['passwords']['number'])
         pw_uppercase = self.wf.settings['passwords']['use_uppercase']
         pw_lowercase = self.wf.settings['passwords']['use_lowercase']
         pw_digits = self.wf.settings['passwords']['use_digits']
         pw_symbols = self.wf.settings['passwords']['use_symbols']
-        pw_ambiguous = self.wf.settings['passwords']['avoid_ambigious']
+        pw_ambiguous = self.wf.settings['passwords']['avoid_ambiguous']
 
         self.log.debug('Password generation settings: {}'.format(
             self.wf.settings['passwords'])
         )
 
-        return self.lpvm.generate_passwords(pw_num, pw_len, pw_uppercase,
-                                            pw_lowercase, pw_digits, pw_symbols,
-                                            pw_ambiguous)
+        return self.lpvm.generate_passwords(
+            number=pw_num,
+            length=pw_len,
+            upper=pw_uppercase,
+            lower=pw_lowercase,
+            digits=pw_digits,
+            symbols=pw_symbols,
+            avoid_ambiguous=pw_ambiguous)
 
     def get_item_details(self, hostname):
         """
@@ -127,6 +139,18 @@ class LpvmUtilities:
             self.log.error('There was an issue with LastPass: {}'.format(e))
             return None
 
+    def is_logged_in(self):
+        """
+        Determines whether the user is logged into LastPass.
+        """
+        try:
+            subprocess.check_output(
+                [self.wf.settings['lastpass']['path'], 'ls']
+            )
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
     def login_to_lastpass(self):
         """
         Uses a special Alfred search to initiate a LastPass login.
@@ -146,11 +170,11 @@ class LpvmUtilities:
         """
         Logs the user out from LastPass.
         """
-        subprocess.call(
-            [self.wf.settings['lastpass']['path'],
-             'logout',
-             '--force']
-        )
+        subprocess.call([
+            self.wf.settings['lastpass']['path'],
+            'logout',
+            '--force'
+        ])
 
     def print_utf8_error(self, string):
         """
@@ -185,15 +209,6 @@ class LpvmUtilities:
             cmd = ['python', self.wf.workflowfile('update.py')]
             run_in_background('update', cmd)
 
-        # Notify the user if the cache is being updated:
-        if is_running('update'):
-            self.wf.add_item(
-                'Getting new data from LastPass.',
-                'Wait a few moments and then continue your query.',
-                valid=False,
-                icon='icons/loading.png'
-            )
-
         # If a query is passed, filter the results:
         if query and results:
             results = self.wf.filter(
@@ -225,6 +240,20 @@ class LpvmUtilities:
         self.wf.settings['passwords'].setdefault('use_lowercase', True)
         self.wf.settings['passwords'].setdefault('use_digits', True)
         self.wf.settings['passwords'].setdefault('use_symbols', True)
-        self.wf.settings['passwords'].setdefault('avoid_ambigious', True)
+        self.wf.settings['passwords'].setdefault('avoid_ambiguous', True)
 
         self.wf.settings.save()
+
+    def set_config_value(self, heading, field, value):
+        """
+        Simple helper function to write a value into the configuration and save
+        it quickly.
+        """
+        self.wf.settings[heading][field] = value
+        self.wf.settings.save()
+
+    def str2bool(self, v):
+        """
+        Casts a string into a boolean.
+        """
+        return v.lower() in ("yes", "true", "t", "1")

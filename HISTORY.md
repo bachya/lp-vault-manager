@@ -3,6 +3,11 @@
 * Added ability to inspect a vault item's fields.
 * Added background updating to address slowness.
 * Added ability to configure filepath to `lpass`.
+* Added ability to toggle uppercase letter use in password generation.
+* Added ability to toggle lowercase letter use in password generation.
+* Added ability to toggle digit use in password generation.
+* Added ability to toggle symbol use in password generation.
+* Added ability to toggle ambiguous character avoidance in password generation.
 * Modified field retrieval to use official `lpass` flags.
 
 # Release v3.2 (2015-01-04)

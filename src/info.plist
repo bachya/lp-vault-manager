@@ -8,7 +8,7 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>110E09BD-42E8-4B04-877B-3FB16DBC5CB5</key>
+		<key>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -21,17 +21,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>9DB4752D-66A6-4E24-8CE8-DB2B42451E15</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>110E09BD-42E8-4B04-877B-3FB16DBC5CB5</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -175,7 +164,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python exec.py download-data</string>
+				<string>python lpdd_exec.py download-data</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -244,7 +233,7 @@
 				<key>runningsubtext</key>
 				<string>Searching vault...</string>
 				<key>script</key>
-				<string>python query.py search-vault-for-query "{query}"</string>
+				<string>python lpvs_query.py search-vault-for-query "{query}"</string>
 				<key>subtext</key>
 				<string>Type a query to start searching your vault</string>
 				<key>title</key>
@@ -267,7 +256,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python exec.py "{query}"</string>
+				<string>python lpvs_exec.py "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -309,7 +298,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python exec.py get-username "{query}"</string>
+				<string>python lpvs_exec.py get-username "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -326,7 +315,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python exec.py open-url "{query}"</string>
+				<string>python lpvs_exec.py open-url "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -349,7 +338,7 @@
 				<key>runningsubtext</key>
 				<string>Searching vault...</string>
 				<key>script</key>
-				<string>python query.py search-vault-for-url "{query}"</string>
+				<string>python lpvs_query.py search-vault-for-url "{query}"</string>
 				<key>subtext</key>
 				<string>Hit ENTER to search the vault, using the URL of the default browser's active tab.</string>
 				<key>title</key>
@@ -378,7 +367,7 @@
 				<key>runningsubtext</key>
 				<string>Generating passwords...</string>
 				<key>script</key>
-				<string>python query.py generate-passwords</string>
+				<string>python lppg_query.py generate-passwords</string>
 				<key>subtext</key>
 				<string>Hit ENTER to generate a number of randomized passwords.</string>
 				<key>title</key>
@@ -407,23 +396,6 @@
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>E9A58B72-F845-426F-B8A7-032DA49A281A</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python exec.py {query}</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>110E09BD-42E8-4B04-877B-3FB16DBC5CB5</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -462,7 +434,7 @@
 				<key>keyword</key>
 				<string>lpsettings</string>
 				<key>script</key>
-				<string>python settings.py "{query}"</string>
+				<string>python lpsettings_query.py "{query}"</string>
 				<key>subtext</key>
 				<string>Modify settings and more.</string>
 				<key>title</key>
@@ -485,7 +457,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>python settings.py {query}</string>
+				<string>python lpsettings_exec.py {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -526,11 +498,6 @@
 	<string>https://github.com/bachya/lp-vault-manager</string>
 	<key>uidata</key>
 	<dict>
-		<key>110E09BD-42E8-4B04-877B-3FB16DBC5CB5</key>
-		<dict>
-			<key>ypos</key>
-			<real>560</real>
-		</dict>
 		<key>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</key>
 		<dict>
 			<key>ypos</key>
