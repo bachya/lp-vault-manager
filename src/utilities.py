@@ -189,6 +189,7 @@ class LpvmUtilities:
         if is_running('update'):
             self.wf.add_item(
                 'Getting new data from LastPass.',
+                'Wait a few moments and then continue your query.',
                 valid=False,
                 icon='icons/loading.png'
             )
