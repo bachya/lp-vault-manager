@@ -16,11 +16,6 @@ import utilities
 ALFRED_AS_PW_REGENERATE = 'tell application "Alfred 2" to search "lppg"'
 
 ####################################################################
-# Miscellaneous
-####################################################################
-DEFAULT_COMMAND_LPVS = 'search-vault-for-query'
-
-####################################################################
 # Globals
 ####################################################################
 log = None
@@ -83,7 +78,7 @@ def main(wf):
              'get-url-from-browser.scpt',
              str(wf.settings['general']['browser'])]
         )).rstrip()
-        uri = '{uri.netloc}'.format(uri=urlparse(url))
+        uri = str('{uri.netloc}'.format(uri=urlparse(url)))
 
         # In this case, the user is requesting a "details view" for a particular
         # hostname.
@@ -95,7 +90,7 @@ def main(wf):
             log.debug('Executing command: search-vault-for-url')
             log.debug('Searching vault for URL: {}'.format(ap.arg))
             ap.command = 'get-password'
-            ap.arg = str(uri)
+            ap.arg = uri
             output_query_vault_results(ap)
 
         sys.exit(0)
@@ -173,6 +168,7 @@ def output_query_vault_results(ap):
     else:
         wf.add_item(
             'No items matching "{}".'.format(ap.arg),
+            'View the `lpvs` debug log for more information.',
             valid=False,
             icon='icons/warning.png'
         )

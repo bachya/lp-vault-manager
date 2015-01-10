@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 from lpvaultmanager import DEFAULT_LPASS_PATH
 from workflow import MATCH_ALL, MATCH_ALLCHARS
+from workflow.background import run_in_background, is_running
 
 import lpvaultmanager as lpvm
 import subprocess
@@ -43,9 +44,10 @@ class LpvmUtilities:
         same Workflow() and pass it aroud once).
         """
         self.wf = wf
-        self.lpvm = lpvm.LastPassVaultManager(wf.settings['lastpass']['path'])
         self.log = wf.logger
         self.set_config_defaults()
+
+        self.lpvm = lpvm.LastPassVaultManager(wf.settings['lastpass']['path'])
 
     def copy_value_to_clipboard(self, string):
         """
@@ -175,14 +177,24 @@ class LpvmUtilities:
         """
         Search the LastPass vault for an optional passed query.
         """
-        results = self.wf.cached_data(
-            'vault_items',
-            self.download_data,
-            max_age=int(self.wf.settings['general']['cache_bust'])
-        )
+        results = self.wf.cached_data('vault_items', None, max_age=0)
+
+        # Start updae script if cache is too old or doesn't exist:
+        age = int(self.wf.settings['general']['cache_bust'])
+        if not self.wf.cached_data_fresh('vault_items', age):
+            cmd = ['python', self.wf.workflowfile('update.py')]
+            run_in_background('update', cmd)
+
+        # Notify the user if the cache is being updated:
+        if is_running('update'):
+            self.wf.add_item(
+                'Getting new data from LastPass.',
+                valid=False,
+                icon='icons/loading.png'
+            )
 
         # If a query is passed, filter the results:
-        if query:
+        if query and results:
             results = self.wf.filter(
                 query,
                 results,

@@ -416,7 +416,7 @@
 				<key>escaping</key>
 				<integer>116</integer>
 				<key>script</key>
-				<string>/usr/bin/env python exec.py {query}</string>
+				<string>python exec.py {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
