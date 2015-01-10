@@ -13,11 +13,16 @@ With it, you can:
 * launch a vault URL in the default browser
 * copy a vault item's username
 * copy vault item's password
+* inspect a vault item's fields (and copy their values)
 * generate random passwords
 * manage many different configuration options
 * much more!
 
-# Initializing the Workflow
+# Initialization
+
+## Installing The Workflow
+
+Install the workflow from [Packal](http://www.packal.org/workflow/lastpass-vault-manager) or download the latest version from the [release page](https://github.com/bachya/lp-vault-manager/releases). Simply double-click on the downloaded file to install it in Alfred.
 
 ## Installing lastpass-cli
 
@@ -63,6 +68,7 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 
 **Modifiers:**
 
+* Tab an item to inspect all of its fields.
 * ⌘-Click an item to copy its password to the system clipboard.
 * Shift-Click an item to copy its username to the system clipboard.
 
@@ -123,6 +129,11 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 * Modify Password Settings
     * Set number of passwords
     * Set password length
+    * Set whether uppercase letters should be used in generated passwords
+    * Set whether lowercase letters should be used in generated passwords
+    * Set whether digits should be used in generated passwords
+    * Set whether symbols should be used in generated passwords
+    * Set whether ambiguous characters should be avoided in generated passwords
 * Edit Config File (in case you want to do it the power-user way)
 * View Repository
 
