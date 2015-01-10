@@ -126,7 +126,7 @@ If that offends a security-conscious mind, don't feel pressure to disable the ti
 * Edit Config File (in case you want to do it the power-user way)
 * View Repository
 
-# Q&A
+# Q&A and Common Issues
 
 ## Q: You mention data caching in several places. What exactly is cached? I'm concerned that my LastPass data is being stored insecurely.
 A: I take security considerations very seriously. At the same time, I want this workflow to provide a speedy user experience. With that said, here's how caching works:
@@ -138,7 +138,7 @@ A: I take security considerations very seriously. At the same time, I want this 
 
 Again, I am committed to being secure with your data. If you have further concerns, please reach out to me via the [Issues Page](https://github.com/bachya/lp-vault-manager/issues).
 
-## Q: I'm noticing something strange: when I type a query into `lpvs`, it seems as though other results appear for a split second before the correct ones do. What's going on?
+## Q: I'm noticing something strange: when I type a query into `lpvs`, it seems as though other results appear for a split second before the correct ones do. Sometimes, the "loading" result appears more than once. What's going on?
 
 Check out [this discussion on the Alfred forum](http://www.alfredforum.com/topic/991-anyway-to-delay-script-filter-from-running-ie-wait-until-user-has-stopped-typing-or-at-least-paused/). Long story short, Alfred processes every key press when running a Script Filter *and doesn't kill previous iterations of that script*. Sounds like it'll be addressed in Alfred 2.6.
 
@@ -146,6 +146,9 @@ Check out [this discussion on the Alfred forum](http://www.alfredforum.com/topic
 A: Since I use Applescript for the application-level scripting necessary to grab the URL from the browser's tab, I need a browser that has Applescript support for that activity. Unfortunately, many browsers – including Firefox – don't support it. See [this Alfred forum topic](http://www.alfredforum.com/topic/2013-how-to-get-frontmost-tab%E2%80%99s-url-and-title-of-various-browsers/) for more info.
 
 If there is a particular browser that I don't yet support, but does have the requisite Applescript capabilities, let me know via the [Issues Page](https://github.com/bachya/lp-vault-manager/issues).
+
+## Q. I'm getting a `ValueError: No JSON object could be decoded` error when I run the workflow. What's going on?
+A. Check out [issue #5](https://github.com/bachya/lp-vault-manager/issues/5) – long story short, you're probably saving raw Unicode characters in your config file.
 
 ## Q: Didn't this project used to be Ruby-based? Why does it now use Python?
 A: During initial development, I found myself tackling a number of fairly common challenges: data caching, fuzzy searching, configuration management, and more. As I looked at other Alfred workflows, I noticed that several developers had started to write libraries to work with Alfred in their preferred language. I decided to do the same.
