@@ -38,7 +38,7 @@ def main(wf):
         for pw in passwords:
             wf.add_item(
                 pw,
-                'Click to copy to clipboard.',
+                'Hit ENTER to copy to clipboard.',
                 arg=pw,
                 valid=True,
                 uid=pw

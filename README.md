@@ -68,13 +68,13 @@ Make sure your Alfred's "Terminal/Shell" settings have a prefix of ">" – this 
 
 **Description:** Searches the associated LastPass vault (more specifically, searches the URL and Hostname fields of all vault items) for the provided query.
 
-**Default Action:** Open URL in default browser
+**Default Action:** Copy password to the system clipboard.
 
 **Modifiers:**
 
 * Tab an item to inspect all of its fields.
-* ⌘-Click an item to copy its password to the system clipboard.
-* Shift-Click an item to copy its username to the system clipboard.
+* ⌘-Click an item to copy its username to the system clipboard.
+* Shift-Click an item to open its URL in the user's default browser.
 
 ## Searching a Vault (based on current URL)
 
@@ -82,14 +82,15 @@ Make sure your Alfred's "Terminal/Shell" settings have a prefix of ">" – this 
 
 ![`lpbrowser` Screenshot](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpbrowser-screenshot.png)
 
-**Description:** Searches the associated LastPass vault (more specifically, searches the URL of all vault items) for the URL of the front-most tab in the user's default browser (set by the `lpsetbrowser` command).
+**Description:** Searches the associated LastPass vault (more specifically, searches the URL of all vault items) for the URL of the front-most tab in the user's default browser (set by the `lpsettings` command).
 
-**Default Action:** Open URL in default browser
+**Default Action:** Copy password to the system clipboard.
 
 **Modifiers:**
 
-* ⌘-Click an item to copy its password to the system clipboard.
-* Shift-Click an item to copy its username to the system clipboard.
+* Tab an item to inspect all of its fields.
+* ⌘-Click an item to copy its username to the system clipboard.
+* Shift-Click an item to open its URL in the user's default browser.
 
 ## Generating Random Passwords
 
