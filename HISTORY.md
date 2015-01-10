@@ -1,14 +1,23 @@
+# Release v4.0 (2015-01-09)
+
+* Added ability to inspect a vault item's fields.
+* Added background updating to address slowness.
+* Added ability to configure filepath to `lpass`.
+* Modified field retrieval to use official `lpass` flags.
+
 # Release v3.2 (2015-01-04)
 
 * Added support for non-ASCII characters.
+* Addresses slow Script Filter results.
+* Modified how default configuration settings are stored.
 * Modified notifications to be more streamlined.
+* Fixed a bug wherein password generation would fail.
 
 # Release v3.1 (2014-12-29)
 
 * Entirely new settings/configuration management via `lpsettings`.
 * Added ability to login to LastPass.
 * Added ability to logout from LastPass.
-* Added ability to configure filepath to `lpass`.
 * Added new (and slimmer) icons.
 * Environment-proofed Python path in all scripts and Script Filters.
 
