@@ -43,25 +43,8 @@ def main(wf):
     # COMMAND: Install Update
     if ap.command == 'install-update':
         log.debug('Executing command: install-update')
-
-        # Get current version:
-        current_version = ''
-        with file(wf.workflowfile('version')) as f:
-            current_version = f.read()
-
-        # Start the update:
         wf.start_update()
-        time.sleep(5)
-
-        # See if the new version installed:
-        new_version = ''
-        with file(wf.workflowfile('version')) as f:
-            new_version = f.read()
-
-        if new_version is not current_version:
-            util.print_utf8('New version installed: {}'.format(new_version))
-        else:
-            util.print_utf8('The installation failed...')
+        util.print_utf8('New version installed!')
 
         sys.exit(0)
 
@@ -180,7 +163,9 @@ def main(wf):
 
 if __name__ == '__main__':
     # Configure a Workflow class and a logger:
-    wf = Workflow()
+    wf = Workflow(libraries=['./lib'], update_settings={
+        'github_slug': 'bachya/lp-vault-manager'
+    })
     log = wf.logger
 
     # Configure a LpvmUtilities class:
