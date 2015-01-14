@@ -47,6 +47,25 @@ def main(wf):
 
     # 1. Commands with no manual entry.
     if ap.delimiter not in ap.query:
+        # COMMAND: Check For Update
+        if ap.command == 'check-for-update':
+            if wf.update_available:
+                info = wf.cached_data('__workflow_update_status', None, 0)
+                wf.add_item(
+                    'Update to version {} available!'.format(info['version']),
+                    'Hit ENTER to automatically install the update.',
+                    valid=True,
+                    arg='install-update',
+                    icon='icons/exclamation.png')
+            else:
+                wf.add_item(
+                    'No update available.',
+                    'You already have the latest version of the workflow.',
+                    valid=False,
+                    icon='icons/confirm.png')
+            wf.send_feedback()
+            sys.exit(0)
+
         # COMMAND: LastPass Login
         if ap.command == 'lastpass-login':
             log.debug('Executing command: lastpass-login')
@@ -59,7 +78,7 @@ def main(wf):
                 wf.send_feedback()
             else:
                 subprocess.call([
-                    'python',
+                    '/usr/bin/python',
                     wf.workflowfile('lpsettings_exec.py'),
                     'login'
                 ])
@@ -415,7 +434,9 @@ def main(wf):
 
 if __name__ == '__main__':
     # Configure a Workflow class and a logger:
-    wf = Workflow(libraries=['./lib'])
+    wf = Workflow(libraries=['./lib'], update_settings={
+        'github_slug': 'bachya/lp-vault-manager'
+    })
     log = wf.logger
 
     # Configure a LpvmUtilities class:

@@ -81,7 +81,7 @@ class LastPassVaultManager:
         fields = ['url', 'hostname']
         try:
             data = subprocess.check_output(
-                [DEFAULT_LPASS_PATH, LPASS_COMMAND_DOWNLOAD]
+                [self.lpass_path, LPASS_COMMAND_DOWNLOAD]
             )
             r = csv.DictReader(StringIO.StringIO(data))
             return [{k: v
