@@ -26,6 +26,8 @@ Install the workflow from [Packal](http://www.packal.org/workflow/lastpass-vault
 
 To check for published releases on GitHub (including automatic installation), use the "Check For Updates" setting within [`lpsettings`](#setting-configuration-options).
 
+![Updating the workflow](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/check-for-update-screenshot.png)
+
 If using Packal, use the [Packal Updater Workflow](http://www.packal.org/workflow/packal-updater).
 
 ## Installing lastpass-cli
