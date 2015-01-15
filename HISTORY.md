@@ -1,3 +1,8 @@
+# Release v4.1 (2015-01-14)
+
+* Implemented auto-updating.
+* Fixed a few small path bugs.
+
 # Release v4.0 (2015-01-09)
 
 * Added ability to inspect a vault item's fields.

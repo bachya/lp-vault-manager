@@ -8,17 +8,6 @@
 	<string>Internet</string>
 	<key>connections</key>
 	<dict>
-		<key>21BDDBB0-3472-4255-98F5-66F8CE49194D</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>BB375BF0-B7D4-40A8-9B72-A45310AEAB4C</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</key>
 		<array>
 			<dict>
@@ -76,17 +65,6 @@
 				<string></string>
 			</dict>
 		</array>
-		<key>6A322C2E-C415-4E76-975E-0D026F1943DD</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>92F68EEA-1754-43B5-BB7D-3023FC2F49F7</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>7C1EC497-56C4-44D7-BE21-B059B4233A2B</key>
 		<array>
 			<dict>
@@ -103,25 +81,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>D029591F-7038-456D-9605-48764DF5DA31</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>8C45BDFD-BEEE-49D8-B4A7-6C0402BE63F0</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>6A322C2E-C415-4E76-975E-0D026F1943DD</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
-				<string>21BDDBB0-3472-4255-98F5-66F8CE49194D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -534,129 +493,11 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>You'll get notified when done.</string>
-				<key>title</key>
-				<string>Update installing...</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>92F68EEA-1754-43B5-BB7D-3023FC2F49F7</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python lpsettings_exec.py notify</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>6A322C2E-C415-4E76-975E-0D026F1943DD</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>keyword</key>
-				<string>lpupdate</string>
-				<key>runningsubtext</key>
-				<string>Determining update status...</string>
-				<key>script</key>
-				<string>python lpsettings_query.py check-for-update</string>
-				<key>subtext</key>
-				<string>See if there is a new version of the workflow.</string>
-				<key>title</key>
-				<string>LastPass Vault Manager Update</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>8C45BDFD-BEEE-49D8-B4A7-6C0402BE63F0</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python lpsettings_exec.py install-update</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>21BDDBB0-3472-4255-98F5-66F8CE49194D</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>LastPass Vault Manager</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>BB375BF0-B7D4-40A8-9B72-A45310AEAB4C</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
 	</array>
 	<key>readme</key>
 	<string>https://github.com/bachya/lp-vault-manager</string>
 	<key>uidata</key>
 	<dict>
-		<key>21BDDBB0-3472-4255-98F5-66F8CE49194D</key>
-		<dict>
-			<key>ypos</key>
-			<real>1000</real>
-		</dict>
 		<key>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</key>
 		<dict>
 			<key>ypos</key>
@@ -671,11 +512,6 @@
 		<dict>
 			<key>ypos</key>
 			<real>120</real>
-		</dict>
-		<key>6A322C2E-C415-4E76-975E-0D026F1943DD</key>
-		<dict>
-			<key>ypos</key>
-			<real>890</real>
 		</dict>
 		<key>7C1EC497-56C4-44D7-BE21-B059B4233A2B</key>
 		<dict>
@@ -692,20 +528,10 @@
 			<key>ypos</key>
 			<real>780</real>
 		</dict>
-		<key>8C45BDFD-BEEE-49D8-B4A7-6C0402BE63F0</key>
-		<dict>
-			<key>ypos</key>
-			<real>890</real>
-		</dict>
 		<key>8F2F00B4-4FC0-4B2D-BA1B-36AF94D3A05C</key>
 		<dict>
 			<key>ypos</key>
 			<real>280</real>
-		</dict>
-		<key>92F68EEA-1754-43B5-BB7D-3023FC2F49F7</key>
-		<dict>
-			<key>ypos</key>
-			<real>890</real>
 		</dict>
 		<key>9DB4752D-66A6-4E24-8CE8-DB2B42451E15</key>
 		<dict>
@@ -716,11 +542,6 @@
 		<dict>
 			<key>ypos</key>
 			<real>780</real>
-		</dict>
-		<key>BB375BF0-B7D4-40A8-9B72-A45310AEAB4C</key>
-		<dict>
-			<key>ypos</key>
-			<real>1000</real>
 		</dict>
 		<key>CE7795C2-98DD-4C9F-9D33-0552A7BFC975</key>
 		<dict>

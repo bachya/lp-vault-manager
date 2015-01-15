@@ -16,11 +16,17 @@ With it, you can:
 * manage many different configuration options
 * much more!
 
-# Initialization
+# Installation
 
 ## Installing The Workflow
 
 Install the workflow from [Packal](http://www.packal.org/workflow/lastpass-vault-manager) or download the latest version from the [release page](https://github.com/bachya/lp-vault-manager/releases). Simply double-click on the downloaded file to install it in Alfred.
+
+## Updating The Workflow
+
+To check for published releases on GitHub (including automatic installation), use the "Check For Updates" setting within [`lpsettings`](#setting-configuration-options).
+
+If using Packal, use the [Packal Updater Workflow](http://www.packal.org/workflow/packal-updater).
 
 ## Installing lastpass-cli
 
@@ -124,6 +130,7 @@ Make sure your Alfred's "Terminal/Shell" settings have a prefix of ">" – this 
 
 **Settings:**
 
+* Check For Updates
 * Set Default Browser (for use in `lpbrowser`)
 * Modify LastPass Settings
     * Log in to LastPass

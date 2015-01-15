@@ -221,6 +221,10 @@ def main(wf):
 
         # COMMAND: List Settings
         elif ap.command == 'list-settings':
+            wf.add_item('Check For Updates',
+                        'See whether there are updates for this workflow.',
+                        autocomplete='check-for-update',
+                        icon='icons/reload.png')
             wf.add_item('Set Default Browser',
                         'Set the browser used by `lpbrowser`.',
                         autocomplete='list-browsers',
