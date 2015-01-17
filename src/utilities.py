@@ -206,7 +206,7 @@ class LpvmUtilities:
         # Start updae script if cache is too old or doesn't exist:
         age = int(self.wf.settings['general']['cache_bust'])
         if not self.wf.cached_data_fresh('vault_items', age):
-            cmd = ['python', self.wf.workflowfile('update.py')]
+            cmd = ['/usr/bin/python', self.wf.workflowfile('update.py')]
             run_in_background('update', cmd)
 
         # If a query is passed, filter the results:
@@ -254,6 +254,6 @@ class LpvmUtilities:
 
     def str2bool(self, v):
         """
-        Casts a string into a boolean.
+        Casts some basic strings into booleans.
         """
         return v.lower() in ("yes", "true", "t", "1")

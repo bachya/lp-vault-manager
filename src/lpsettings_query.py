@@ -67,7 +67,7 @@ def main(wf):
             sys.exit(0)
 
         # COMMAND: LastPass Login
-        if ap.command == 'lastpass-login':
+        elif ap.command == 'lastpass-login':
             log.debug('Executing command: lastpass-login')
             if util.is_logged_in():
                 wf.add_item(
@@ -358,7 +358,7 @@ def main(wf):
             sys.exit(0)
 
         # COMMAND: Password Length
-        if ap.command == 'password-length':
+        elif ap.command == 'password-length':
             existing_len = wf.settings['passwords']['length']
             if existing_len:
                 sub_msg = 'Current password length: {!s}'.format(existing_len)
@@ -388,7 +388,7 @@ def main(wf):
             sys.exit(0)
 
         # COMMAND: Password Number
-        if ap.command == 'password-number':
+        elif ap.command == 'password-number':
             existing_num = wf.settings['passwords']['number']
             if existing_num:
                 sub_msg = 'Current password number: {!s}'.format(existing_num)

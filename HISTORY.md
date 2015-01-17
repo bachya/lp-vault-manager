@@ -1,3 +1,9 @@
+# Release v4.2 (2015-01-17)
+
+* Fixed a bug where the full path to `/usr/bin/python` was not specified.
+* Fixed a settings selection bug.
+* Streamlined some verbiage within notifications.
+
 # Release v4.1 (2015-01-14)
 
 * Implemented auto-updating.

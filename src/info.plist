@@ -161,6 +161,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>escaping</key>
+				<integer>116</integer>
+				<key>script</key>
+				<string>python lpdd_exec.py download-data</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F9CC3250-450B-48DB-BEBB-1A551EA6D50A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -201,23 +218,6 @@
 			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
 			<string>F24608FD-DD00-4B01-989A-5C2011AAB3B4</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python lpdd_exec.py download-data</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>F9CC3250-450B-48DB-BEBB-1A551EA6D50A</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -358,21 +358,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>E9A58B72-F845-426F-B8A7-032DA49A281A</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>escaping</key>
@@ -396,6 +381,21 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>2AB6F640-A9BD-4355-8A48-EDF7D3AEDBC2</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>E9A58B72-F845-426F-B8A7-032DA49A281A</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -433,6 +433,8 @@
 				<integer>116</integer>
 				<key>keyword</key>
 				<string>lpsettings</string>
+				<key>runningsubtext</key>
+				<string>Loading settings...</string>
 				<key>script</key>
 				<string>python lpsettings_query.py "{query}"</string>
 				<key>subtext</key>
@@ -448,6 +450,23 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>8A1CA7DC-7A5E-4B3C-BA1B-693E97B5D125</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>116</integer>
+				<key>script</key>
+				<string>python lpsettings_exec.py {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D029591F-7038-456D-9605-48764DF5DA31</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -473,23 +492,6 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>9F678088-05F8-45D6-877F-49117999F415</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>116</integer>
-				<key>script</key>
-				<string>python lpsettings_exec.py {query}</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>D029591F-7038-456D-9605-48764DF5DA31</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
