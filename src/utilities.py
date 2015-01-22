@@ -63,7 +63,7 @@ class LpvmUtilities:
         """
         try:
             data = self.lpvm.download_data()
-            self.log.debug('Downloaded data: {}'.format(data))
+            self.log.debug('{} LastPass vault items cached.'.format(len(data)))
             return [{k: self.wf.decode(v) for k, v in i.iteritems()}
                     for i in data]
         except lpvm.LastPassVaultManagerError, e:
