@@ -78,7 +78,7 @@ class LastPassVaultManager:
         Downloads data via `lpass export` and returns only the whitelisted
         fields specified below.
         """
-        fields = ['url', 'hostname']
+        fields = ['url', 'name']
         try:
             data = subprocess.check_output(
                 [self.lpass_path, LPASS_COMMAND_DOWNLOAD]
@@ -127,13 +127,13 @@ class LastPassVaultManager:
 
         return passwords
 
-    def get_details(self, hostname):
+    def get_details(self, name):
         """
         Returns all the fields stored for a particular vault item.
         """
         try:
             p = subprocess.Popen(
-                [self.lpass_path, 'show', hostname],
+                [self.lpass_path, 'show', name],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT
             )
@@ -148,14 +148,14 @@ class LastPassVaultManager:
         except subprocess.CalledProcessError, e:
             raise LastPassVaultManagerError(e)
 
-    def get_field_value(self, hostname, field_name):
+    def get_field_value(self, name, field_name):
         """
         Returns the value for a particular field within a vault item (specified
         by the provided hostname).
         """
         try:
             field_output = subprocess.check_output(
-                [self.lpass_path, 'show', '--{}'.format(field_name), hostname]
+                [self.lpass_path, 'show', '--{}'.format(field_name), name]
             ).split('\n')
 
             if field_output[0].startswith(MSG_HOSTNAME_NOT_FOUND):

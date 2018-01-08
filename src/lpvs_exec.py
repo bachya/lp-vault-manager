@@ -31,11 +31,11 @@ def copy_value_and_notify(value, success_msg, error_msg):
     return
 
 
-def copy_lp_field_and_notify(hostname, field_name):
-    log.debug('Getting "{}" field from "{}"...'.format(field_name, hostname))
-    value = util.get_value_from_field(hostname, field_name)
-    sm = 'Copied {} for "{}" to clipboard.'.format(field_name, hostname)
-    em = 'Unable to copy {} for "{}".'.format(field_name, hostname)
+def copy_lp_field_and_notify(name, field_name):
+    log.debug('Getting "{}" field from "{}"...'.format(field_name, name))
+    value = util.get_value_from_field(name, field_name)
+    sm = 'Copied {} for "{}" to clipboard.'.format(field_name, name)
+    em = 'Unable to copy {} for "{}".'.format(field_name, name)
     copy_value_and_notify(value, sm, em)
     return
 
