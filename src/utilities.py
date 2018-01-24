@@ -103,37 +103,37 @@ class LpvmUtilities:
             symbols=pw_symbols,
             avoid_ambiguous=pw_ambiguous)
 
-    def get_item_details(self, hostname):
+    def get_item_details(self, name):
         """
         Returns all the fields stored by LastPass for a particular hostname.
         """
         try:
-            details = self.lpvm.get_details(hostname)
+            details = self.lpvm.get_details(name)
             return [self.wf.decode(i) for i in details][1:]
-        except lpvm.HostnameNotFoundError, e:
-            self.log.error('Could not find hostname: "{}".'.format(hostname))
+        except lpvm.nameNotFoundError, e:
+            self.log.error('Could not find name: "{}".'.format(name))
             return None
-        except lpvm.MultipleHostnamesError, e:
-            self.log.error('Multiple matches for "{}".'.format(hostname))
+        except lpvm.MultiplenamesError, e:
+            self.log.error('Multiple matches for "{}".'.format(name))
             return None
         except lpvm.LastPassVaultManagerError, e:
             self.log.error('There was an issue with LastPass: {}'.format(e))
             return None
 
-    def get_value_from_field(self, hostname, field_name):
+    def get_value_from_field(self, name, field_name):
         """
         Retrieves a specific field for a specific hostname from the LastPass
         vault.
         """
         try:
             return self.wf.decode(
-                self.lpvm.get_field_value(hostname, field_name)
+                self.lpvm.get_field_value(name, field_name)
             )
-        except lpvm.HostnameNotFoundError, e:
-            self.log.error('Hostname not found: {}'.format(hostname))
+        except lpvm.nameNotFoundError, e:
+            self.log.error('name not found: {}'.format(name))
             return None
-        except lpvm.MultipleHostnamesError, e:
-            self.log.error('Multiple matches for "{}".'.format(hostname))
+        except lpvm.MultiplenamesError, e:
+            self.log.error('Multiple matches for "{}".'.format(name))
             return None
         except lpvm.LastPassVaultManagerError, e:
             self.log.error('There was an issue with LastPass: {}'.format(e))
@@ -193,7 +193,7 @@ class LpvmUtilities:
         The function used to search individual lastpass vault items.
         """
         elements = []
-        elements.append(item['hostname'])
+        elements.append(item['name'])
         elements.append(item['url'])
         return ' '.join(elements)
 

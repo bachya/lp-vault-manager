@@ -90,13 +90,13 @@ def main(wf):
 
 
 def output_details_results(ap):
-    hostname = re.sub('view-details ', '', ap.arg.split('***')[0])
+    name = re.sub('view-details ', '', ap.arg.split('***')[0])
 
-    log.debug('Getting details for "{}"...'.format(hostname))
-    item_details = util.get_item_details(hostname)
+    log.debug('Getting details for "{}"...'.format(name))
+    item_details = util.get_item_details(name)
     if item_details:
         wf.add_item(
-            'Exploring: {}'.format(hostname),
+            'Exploring: {}'.format(name),
             'Hit ENTER on any option below to copy its value.',
             valid=False,
             icon='icons/info.png'
@@ -117,7 +117,7 @@ def output_details_results(ap):
                     arg='get-raw-value {}***{}***{}'.format(
                         field,
                         value,
-                        hostname)
+                        name)
                 )
     else:
         wf.add_item(
@@ -152,7 +152,7 @@ def output_query_vault_results(ap):
     if results:
         for result in results:
             wf.add_item(
-                result['hostname'],
+                result['name'],
                 'TAB to explore; ' +
                 'ENTER to copy password; ' +
                 '\u2318-Click to copy username; ' +
@@ -163,9 +163,9 @@ def output_query_vault_results(ap):
                 },
                 valid=True,
                 arg='{} {}***{}'.format(ap.command,
-                                        result['hostname'],
+                                        result['name'],
                                         result['url']),
-                autocomplete='view-details {}'.format(result['hostname']),
+                autocomplete='view-details {}'.format(result['name']),
             )
     else:
         wf.add_item(
