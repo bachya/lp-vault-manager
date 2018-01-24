@@ -2,6 +2,10 @@
 
 LP Vault manager is an [Alfred 2](http://www.alfredapp.com/) workflow to interact with a [LastPass](http://www.lastpass.com) vault.
 
+**NOTE:** This project is no longer actively maintained by the original owner and
+is in need of new owners/maintainers going forward. If you are interested,
+please reach out to bachya1208@gmail.com.
+
 ![LastPass Vault Manager in action](https://raw.githubusercontent.com/bachya/lp-vault-manager/master/support/readme-images/lpvm.gif)
 
 With it, you can:
