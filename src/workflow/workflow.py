@@ -735,11 +735,7 @@ class Item(object):
         """
 
         # Attributes on <item> element
-        attr = {}
-        if self.valid:
-            attr['valid'] = 'yes'
-        else:
-            attr['valid'] = 'no'
+        attr = {'valid': 'yes' if self.valid else 'no'}
         # Allow empty string for autocomplete. This is a useful value,
         # as TABing the result will revert the query back to just the
         # keyword
@@ -769,10 +765,7 @@ class Item(object):
 
         # Add icon if there is one
         if self.icon:
-            if self.icontype:
-                attr = dict(type=self.icontype)
-            else:
-                attr = {}
+            attr = dict(type=self.icontype) if self.icontype else {}
             ET.SubElement(root, 'icon', attr).text = self.icon
 
         if self.largetext:
@@ -1244,8 +1237,8 @@ class Workflow(object):
                 if self._workflowdir:
                     break
 
-            if not self._workflowdir:
-                raise IOError("'info.plist' not found in directory tree")
+        if not self._workflowdir:
+            raise IOError("'info.plist' not found in directory tree")
 
         return self._workflowdir
 
@@ -2168,7 +2161,7 @@ class Workflow(object):
         update_data = self.cached_data('__workflow_update_status', max_age=0)
         self.logger.debug('update_data : {}'.format(update_data))
 
-        if not update_data or not update_data.get('available'):
+        if not (update_data and update_data.get('available')):
             return False
 
         return update_data['available']
@@ -2192,7 +2185,7 @@ class Workflow(object):
         frequency = self._update_settings.get('frequency',
                                               DEFAULT_UPDATE_FREQUENCY)
 
-        if not force and not self.settings.get('__workflow_autoupdate', True):
+        if not (force or self.settings.get('__workflow_autoupdate', True)):
             self.logger.debug('Auto update turned off by user')
             return
 
@@ -2596,8 +2589,7 @@ class Workflow(object):
         if isascii(text):
             return text
 
-        text = ''.join([DUMB_PUNCTUATION.get(c, c) for c in text])
-        return text
+        return ''.join([DUMB_PUNCTUATION.get(c, c) for c in text])
 
     def _delete_directory_contents(self, dirpath, filter_func):
         """Delete all files in a directory

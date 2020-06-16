@@ -192,9 +192,7 @@ class LpvmUtilities:
         """
         The function used to search individual lastpass vault items.
         """
-        elements = []
-        elements.append(item['name'])
-        elements.append(item['url'])
+        elements = [item['name'], item['url']]
         return ' '.join(elements)
 
     def search_vault_for_query(self, query):

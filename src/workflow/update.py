@@ -75,7 +75,7 @@ class Version(object):
             self.minor = parts.pop(0)
         if len(parts):
             self.patch = parts.pop(0)
-        if not len(parts) == 0:
+        if len(parts) != 0:
             raise ValueError('Invalid version (too long) : {}'.format(vstr))
 
         if suffix:
@@ -84,12 +84,12 @@ class Version(object):
             if idx > -1:
                 self.build = suffix[idx+1:]
                 suffix = suffix[:idx]
-            if suffix:
-                if not suffix.startswith('-'):
-                    raise ValueError(
-                        'Invalid suffix : `{}`. Must start with `-`'.format(
-                            suffix))
-                self.suffix = suffix[1:]
+        if suffix:
+            if not suffix.startswith('-'):
+                raise ValueError(
+                    'Invalid suffix : `{}`. Must start with `-`'.format(
+                        suffix))
+            self.suffix = suffix[1:]
 
         # log.debug('version str `{}` -> {}'.format(vstr, repr(self)))
 
@@ -170,8 +170,9 @@ def download_workflow(url):
 
     filename = url.split("/")[-1]
 
-    if (not url.endswith('.alfredworkflow') or
-            not filename.endswith('.alfredworkflow')):
+    if not (
+        url.endswith('.alfredworkflow') and filename.endswith('.alfredworkflow')
+    ):
         raise ValueError('Attachment `{}` not a workflow'.format(filename))
 
     local_path = os.path.join(tempfile.gettempdir(), filename)
@@ -316,7 +317,7 @@ def install_update(github_slug, current_version):
 
     update_data = wf.cached_data('__workflow_update_status', max_age=0)
 
-    if not update_data or not update_data.get('available'):
+    if not (update_data and update_data.get('available')):
         wf.logger.info('No update available')
         return False
 
